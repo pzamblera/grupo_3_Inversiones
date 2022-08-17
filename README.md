@@ -15,6 +15,7 @@ Estoy casado con Victoria, ella es traductora. Tenemos 2 hijos, Ciro de 8 años 
 Referentes del Mercado:
 
 De nuestras referencias sacamos inspiración para la ideación de diferentes aspectos de nuestra página. De "e-toro", "iqbroker" y "bitso" tomamos elementos para la apariencia de nuestra página y de todos nuestros referentes sacamos ideas de los diferentes tipos de inversión que podemos ofrecer.
+
 Paginas de referencia:
 
 1) https://www.crowdium.com.ar/
