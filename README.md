@@ -4,7 +4,8 @@ El objetivo de este proyecto es generar una web de inversiones, que ofrezca un m
 
 El público objetivo es inversores minoristas del mercado.
 
-Descripción de Ignacio...
+Descripción de Ignacio: Soy de Lujan, provincia de Bs As. Tengo 31 años y soy contador público. Es mi primer experiencia como programador y me esta costando un poco. Lo bueno es que me gusta mucho y me parece atrapante. 
+Espero poder trabajar de esto el año que viene para empezar adquirir experiencias y conocimientos para luego, en unos años, poder hacer proyector propios y de manera independiente.
 
 Emiliano Agüero: Tengo 29 años de edad, soy técnico en administración y actualmente resido en la ciudad de Córdoba. Si bien aún no tengo experiencia, me siento mas cómodo con el fronend. Una vez finalizado el curso de Full Stack en DigitalHouse me gustaría poder trabajar como desarrollador.
 
@@ -13,18 +14,13 @@ Estoy casado con Victoria, ella es traductora. Tenemos 2 hijos, Ciro de 8 años 
 
 Referentes del Mercado:
 
-De nuestras referencias sacamos inspiración para la ideación de diferentes aspectos de nuestra página. De etoro, iqbroker y bitso tomamos elementos para la apariencia de nuestra página y de todos nuestros referentes sacamos ideas de los diferentes tipos de inversión que podemos ofrecer.
+De nuestras referencias sacamos inspiración para la ideación de diferentes aspectos de nuestra página. De "e-toro", "iqbroker" y "bitso" tomamos elementos para la apariencia de nuestra página y de todos nuestros referentes sacamos ideas de los diferentes tipos de inversión que podemos ofrecer.
+Paginas de referencia:
 
-https://www.crowdium.com.ar/
-
-https://bitso.com/ar
-
-https://www.lemon.me/
-
-https://www.quiena.com/
-
-https://www.etoro.com/es/
-
-https://www.fidustrade.com/fidusagro
-
-https://iqbroker.co/es/
+1) https://www.crowdium.com.ar/
+2) https://bitso.com/ar
+3) https://www.lemon.me/
+4) https://www.quiena.com/
+5) https://www.etoro.com/es/
+6) https://www.fidustrade.com/fidusagro
+7) https://iqbroker.co/es/
