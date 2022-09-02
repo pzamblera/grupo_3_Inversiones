@@ -1,0 +1,109 @@
+.mainStyle{
+    background-color: #f8f4f4;
+    color: #030114;
+}
+.secondaryStyle{
+    background-color: #030114;
+    text-align: right;
+}
+.fixed{
+    position: fixed;
+}
+.navLogo{
+    width: 20vw;
+    margin: 30px;
+}
+.navColor{
+    background-color: #030114;
+}
+.navTextColor{
+    color: #f8f4f4; 
+}
+.navTextColor:hover{
+    color: #f8f4f4; 
+}
+.navTextColor:visited{
+    color: #f8f4f4; 
+}
+
+/*.botonesNav{
+    text-align: center;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0rem 1rem 1rem 0rem;
+    width: 8rem;
+    background: #23da5a;
+    font-size: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.textoBotonesNav{
+    color: #030114;
+    text-decoration: none;
+}
+.textoBotonesNav:hover{
+    background-color: rgba(000,000,000,0.1);
+    color:#f8f4f4;
+}*/
+.altoCarrusel{
+    max-height: 70vh;
+}
+.textoCarrusel{
+    text-shadow: 2px 2px 5px #030114,0px 0px 5px #030114,-2px -2px 5px #030114
+}
+.inversionesImagen{
+    height: auto;
+    width: 100%;
+}
+.redes{
+font-size: 50px;
+margin: 30px;
+color: #f8f4f4;
+}
+.vph75{
+    height: 75vh;
+}
+.vh60{
+    height: 60vh;
+    padding: 25px;
+}
+.align{
+    align-items: center;
+    justify-content: center;
+}
+/*.b{
+    border: red;
+    border-style: dotted;
+}*/
+.mr{
+    margin: 0px, 0px, 0px, 0px,;
+}
+#inversiones h5{
+    padding: 10px;
+    text-align: center;
+}
+#inversiones p{
+    padding: 10px;
+}
+/*CSS Perfil*/
+.imgPerfil{
+    font-size: 160px;
+    color: #23da5a;
+}
+.card{
+    color: #f8f4f4;
+    background-color: #030114;
+    border-radius: 8px;
+    max-width: 28%;
+}
+.cardIcon{
+    font-size: 100px;
+    color: #23da5a;
+}
+.colorButton{
+    background-color: #23da5a;
+    color: #030114;
+}
+.carteraCentrado{
+    text-align: center;
+}
