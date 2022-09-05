@@ -1,0 +1,140 @@
+.mainStyle{
+    background-color: #32d811;
+    color: #b6b2b2;
+}
+.secondaryStyle{
+    background-color: #030114;
+    text-align: right;
+}
+.navLogo{
+    width: 15vw;
+    margin: 30px;
+}
+.botonesNav{
+    text-align: center;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0rem 1rem 1rem 0rem;
+    width: 8rem;
+    background: #70f637;
+    font-size: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.textoBotonesNav{
+    color: #faf9fc;
+    text-decoration: none;
+}
+.textoBotonesNav:hover{
+    background-color: rgba(000,000,000,0.1);
+    color:#f8f4f4;
+}
+.altoCarrusel{
+    max-height: 70vh;
+}
+.textoCarrusel{
+    text-shadow: 2px 2px 5px #030114,0px 0px 5px #030114,-2px -2px 5px #030114
+}
+.inversionesImagen{
+    height: 30vh;
+    width: 30vw;
+}
+.redes{
+    font-size: 50px;
+    margin: 30px;
+    color: #f8f4f4;
+    }
+.felx{
+    display: flex;
+    flex-direction: row;
+}
+body {
+    background: #050607;
+    background: linear-gradient(to right, #1b1b1b, #2ccc17);
+  }
+
+  
+  .btn-google {
+    color: white !important;
+    background-color: #ea4335;
+  }
+  
+  .btn-facebook {
+    color: white !important;
+    background-color: #2452bd;
+  }
+  .navColor{
+    background-color: #030114;
+}
+.navTextColor{
+    color: #f8f4f4; 
+}
+.navTextColor:hover{
+    color: #f8f4f4; 
+}
+.navTextColor:visited{
+    color: #f8f4f4; 
+}
+.colorbutton{
+    background-color: #e9ecf3;
+}
+.login {
+    min-height: 100vh;
+  }
+  
+  .bg-image {
+    background-image: url('https://www.bing.com/images/search?view=detailV2&ccid=Nx8a1EwK&id=FB15FDB32B7F395982A7FD8F82512EB5DF4BB244&thid=OIP.Nx8a1EwKa8AqchWNCrkV0QHaFa&mediaurl=https%3a%2f%2fc8.alamy.com%2fcompes%2fpkdcdr%2farbol-de-billetes-de-banco-de-imagenes-nota-con-planta-en-la-parte-superior-para-el-creciente-negocio-de-fondo-natural-verde-dinero-ahorro-e-inversion-concepto-financiero-pkdcdr.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.371f1ad44c0a6bc02a72158d0ab915d1%3frik%3dRLJL37UuUYKP%252fQ%26pid%3dImgRaw%26r%3d0&exph=951&expw=1300&q=imagenes+de+inverciones+verdes&simid=608046324509455596&FORM=IRPRST&ck=946E6BB2440FB1F6E93EB4403EE5440D&selectedIndex=9&ajaxhist=0&ajaxserp=0');
+    background-size: cover;
+    background-position: center;
+  }
+  
+
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    background-color: #030114;
+  }
+
+  .card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('');
+    background-size: cover;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn-google {
+    color: white !important;
+    background-color: #ea4335;
+  }
+  
+  .btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
+  }
+  .login {
+    min-height: 100vh;
+  }
+  
+  .bg-image {
+    background-image: url('file:///C:/Users/Admin/Desktop/digital%20house%20FS/PROYECTO%20GRUPAL/pablo/grupo_3_Inversiones%20v2/public/img/duotone%20(3).png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-heading {
+    font-weight: 300;
+  }
+  
+  /*.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }*/

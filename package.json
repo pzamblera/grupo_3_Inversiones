@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "name": "grupo_3_inversiones",
+  "description": "Dh-Grupo 3\r El objetivo de este proyecto es generar una web de inversiones, que ofrezca un menú de opciones de productos financieros.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzamblera/grupo_3_Inversiones.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pzamblera/grupo_3_Inversiones/issues"
+  },
+  "homepage": "https://github.com/pzamblera/grupo_3_Inversiones#readme"
+}
