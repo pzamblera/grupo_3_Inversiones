@@ -9,23 +9,23 @@ app.listen(process.env.PORT || 3000, function() {
     console.log("Servidor corriendo");
 })
 
-app.get("/", function(req, res){
+app.get("/index.html", function(req, res){
     res.sendFile(path.resolve(__dirname, './views/index.html'));
 });
 
-app.get("/perfil", function(req, res){
+app.get("/perfil.html", function(req, res){
     res.sendFile(path.resolve(__dirname, './views/perfil.html'));
 });
 
-app.get("/login", function(req, res){
+app.get("/login.html", function(req, res){
     res.sendFile(path.resolve(__dirname, './views/login.html'));
 });
 
-app.get("/producto", function(req, res){
+app.get("/producto.html", function(req, res){
     res.sendFile(path.resolve(__dirname, './views/producto.html'));
 });
 
-app.get("/registro", function(req, res){
+app.get("/registro.html", function(req, res){
     res.sendFile(path.resolve(__dirname, './views/registro.html'));
 });
 
