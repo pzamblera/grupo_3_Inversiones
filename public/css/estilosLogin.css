@@ -83,7 +83,7 @@ body {
   }
   
   .bg-image {
-    background-image: url('https://www.bing.com/images/search?view=detailV2&ccid=Nx8a1EwK&id=FB15FDB32B7F395982A7FD8F82512EB5DF4BB244&thid=OIP.Nx8a1EwKa8AqchWNCrkV0QHaFa&mediaurl=https%3a%2f%2fc8.alamy.com%2fcompes%2fpkdcdr%2farbol-de-billetes-de-banco-de-imagenes-nota-con-planta-en-la-parte-superior-para-el-creciente-negocio-de-fondo-natural-verde-dinero-ahorro-e-inversion-concepto-financiero-pkdcdr.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.371f1ad44c0a6bc02a72158d0ab915d1%3frik%3dRLJL37UuUYKP%252fQ%26pid%3dImgRaw%26r%3d0&exph=951&expw=1300&q=imagenes+de+inverciones+verdes&simid=608046324509455596&FORM=IRPRST&ck=946E6BB2440FB1F6E93EB4403EE5440D&selectedIndex=9&ajaxhist=0&ajaxserp=0');
+    background-image: url("./img/duotone (1)");
     background-size: cover;
     background-position: center;
   }
@@ -133,6 +133,10 @@ body {
     font-weight: 300;
   }
   
+  .small{
+    color:#f8f4f4;
+  }
+
   /*.btn-login {
     font-size: 0.9rem;
     letter-spacing: 0.05rem;

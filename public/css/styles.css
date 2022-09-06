@@ -61,6 +61,11 @@ color: #f8f4f4;
     padding: 25px;
 }
 
+.vh70{
+    height: 70vh;
+    padding: 25px;
+}
+
 .align{
     align-items: center;
     justify-content: center;
@@ -80,6 +85,10 @@ color: #f8f4f4;
 }
 
 /* css productos */
+.product{
+    padding: 20px;
+}
+
 /*
 .container {
     display: flex;
@@ -119,6 +128,8 @@ color: #f8f4f4;
 .cardIcon{
     font-size: 100px;
     color: #23da5a;
+    margin: 20px;
+
 }
 
 .colorButton{
@@ -139,3 +150,9 @@ color: #f8f4f4;
     padding: 15px, 0px, 15px;
 }
 
+.alignTextPerfil{
+    text-align: center;
+}
+.fontSize{
+    font-size: 20px;
+}
