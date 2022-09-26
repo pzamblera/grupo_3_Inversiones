@@ -1,38 +1,17 @@
 const express = require('express');
 const path = require("path");
+const router = require('./src/routes/main');
+const routerProducto = require("./src/routes/producto")
 
 const app = express();
+app.set("views",path.join(__dirname,"./src/views"))
+app.set("view engine","ejs");
+
+app.use("/", router);
+// app.use("/producto", routerProducto);
 
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.listen(process.env.PORT || 3000, function() {
     console.log("Servidor corriendo");
 })
-
-app.get("/", function(req, res){
-    res.sendFile(path.resolve(__dirname, './views/index.html'));
-});
-
-app.get("/index.html", function(req, res){
-    res.sendFile(path.resolve(__dirname, './views/index.html'));
-});
-
-app.get("/perfil.html", function(req, res){
-    res.sendFile(path.resolve(__dirname, './views/perfil.html'));
-});
-
-app.get("/login.html", function(req, res){
-    res.sendFile(path.resolve(__dirname, './views/login.html'));
-});
-
-app.get("/producto.html", function(req, res){
-    res.sendFile(path.resolve(__dirname, './views/producto.html'));
-});
-
-app.get("/registro.html", function(req, res){
-    res.sendFile(path.resolve(__dirname, './views/registro.html'));
-});
-
-app.get('*',function(req,res){
-    res.send("Ruta restringida.");
-});
