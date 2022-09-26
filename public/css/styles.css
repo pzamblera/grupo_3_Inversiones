@@ -1,3 +1,16 @@
+header {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.navBack{
+    height: 4.5rem;
+    width: 100%;
+    background-color: #030114;
+    z-index: 200;
+}
+
 .mainStyle{
     background-color: #f8f4f4;
     color: #030114;
@@ -6,10 +19,6 @@
 .secondaryStyle{
     background-color: #030114;
     text-align: right;
-}
-
-.fixed{
-    position: fixed;
 }
 
 .navLogo{

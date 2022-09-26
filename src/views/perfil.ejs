@@ -11,36 +11,9 @@
     <title>Perfil</title>
 </head>
 <body class="mainStyle">
-    <header class="">
-        <nav class="navbar navColor">
-          <div class="container-fluid">
-            <a class="navbar-brand navTextColor" href="#">
-              <img src="/img/NOT_SO_PONZI-removebg-recortado.png" alt="" width="60" height="30" class="d-inline-block align-text-top navTextColor">
-              NotSoPonzi
-            </a>
-            <nav class="navbar navbar-expand-lg navTextColor">
-              <div class="container-fluid">
-                <div class="collapse navbar-collapse navTextColor" id="navbarNav">
-                  <ul class="navbar-nav navTextColor">
-                    <li class="nav-item">
-                      <a class="nav-link navTextColor" href="index">Inicio</a> 
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link navTextColor" href="producto">Productos</a> 
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link navTextColor" href="login">Ingreso</a> 
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link navTextColor" href="perfil">Perfil</a> 
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-          </nav>
-      </header>    
+
+  <%- include('partials/header') %>
+
       <section class="container">
         <div class="row justify-content-around align-items-center">
             <p class="col-5 imgPerfil alignTextPerfil"><i class="fa-solid fa-id-badge"></i></p>
@@ -90,10 +63,8 @@
             </div>
         </div>
       </section>
-    <footer class="secondaryStyle">
-        <a href=""><i class="fa-brands fa-facebook redes"></i></a>
-        <a href=""><i class="fa-brands fa-instagram redes"></i></a>
-        <a href=""><i class="fa-brands fa-twitter redes"></i></a>
-    </footer>
+
+      <%- include('partials/footer') %>
+
 </body>
 </html>
