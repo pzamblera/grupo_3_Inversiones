@@ -1,7 +1,7 @@
-// const express = require ("express");
-// const routerProducto = express.Router();
-// const aa = require("../controllers/productoControllers")
+const express = require ("express");
+const routerProducto = express.Router();
+const controller2 = require("../controllers/productoControllers")
 
-// router.get("/producto", aa.producto)
+routerProducto.get("/", controller2.producto)
 
-// module.exports = routerProducto;
+module.exports = routerProducto;

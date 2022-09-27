@@ -11,9 +11,6 @@ const controller = {
     perfil: (req, res) => {
         res.render("perfil");
     },
-    producto: (req, res) => {
-        res.render("producto");
-    },
 };
 
 
