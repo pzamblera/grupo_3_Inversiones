@@ -1,43 +1,30 @@
 const fs = require('fs');
 const path = require('path');
-const { validationResult } = require('express-validator');
-
+//const { validationResult } = require('express-validator');
 
 //const productsFilePath = path.join(__dirname, '../RUTA');
-const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+//const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-
-/*const controller = {
-     producto: (req, res) => {
+const controller2 = {
+    producto: (req, res) => {
           const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
           res.render("producto",{productos: producto});
      },
 
-    crear
-	    create: (req, res) => {
-            res.render('VISTA');
-        },*/
+    //crear
+    crear1: (req, res) => {
+        res.render('crear');
+	},
 
-    /*guardar: (req, res) => {
+    crear2: (req, res) => {
+		console.log(req.body);
 
-        let errors = validationResult(req);
+	}
+}
 
-        if ( errors.isEmpty() ) {
-
-            idNuevo=0;
-
-        for (let x of productos){
-            if (idNuevo<x.id){
-                idNuevo=x.id;
-            }
-        }
-
-        idNuevo++;
-
-        //let nombreImagen = req.file.filename;
-
+     /*   //let nombreImagen = req.file.filename;
 
         let productoNuevo =  {
             id: idNuevo,
@@ -62,61 +49,62 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },*/
 
     //Actualizar
-	/*editar: (req, res) => {
+    /*editar: (req, res) => {
 
-		let id = req.params.id;
-		let productoEncontrado;
+        let id = req.params.id;
+        let productoEncontrado;
 
-		for (let x of productos){
-			if (id==x.id){
-				productoEncontrado=x;
-			}
-		}
+        for (let x of productos){
+            if (id==x.id){
+                productoEncontrado=x;
+            }
+        }
 
-		res.render('VISTA',{ProductoaEditar: productoEncontrado});
-	},
+        res.render('VISTA',{ProductoaEditar: productoEncontrado});
+    },
 
-	update: (req, res) => {
-		
-		let id = req.params.id;
-		let productoEncontrado;
+    update: (req, res) => {
+        
+        let id = req.params.id;
+        let productoEncontrado;
 
-		for (let x of products){
-			if (id==x.id){
-				x.nombre= req.body.nombre;
-				x.descripcion= req.body.descripcion;
-				x.imagen= req.body.imagen;
-				break;
-			}
-		}
+        for (let x of products){
+            if (id==x.id){
+                x.nombre= req.body.nombre;
+                x.descripcion= req.body.descripcion;
+                x.imagen= req.body.imagen;
+                break;
+            }
+        }
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
+        fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
 
-		res.redirect('/');
-	},*/
-    /*	Baja
-	destroy : (req, res) => {
+        res.redirect('/');
+    },*/
+    /*  Baja
+    destroy : (req, res) => {
 
-		let id = req.params.id;
-		let ProductoEncontrado;
+        let id = req.params.id;
+        let ProductoEncontrado;
 
-		let Nproducts = products.filter(function(e){
-			return id!=e.id;
-		})
+        let Nproducts = products.filter(function(e){
+            return id!=e.id;
+        })
 
-		for (let producto of products){
-			if (producto.id == id){
-			    ProductoEncontrado=producto;
-			}
-		}
+        for (let producto of products){
+            if (producto.id == id){
+                ProductoEncontrado=producto;
+            }
+        }
 
-		fs.unlinkSync(path.join(__dirname, 'RUTA', ProductoEncontrado.imagen));
+        fs.unlinkSync(path.join(__dirname, 'RUTA', ProductoEncontrado.imagen));
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(Nproducts,null,' '));
+        fs.writeFileSync(productsFilePath, JSON.stringify(Nproducts,null,' '));
 
-		res.redirect('/');
-	}*/
+        res.redirect('/');
+    }*/
 
-// };
 
-// module.exports = controller;
+
+
+module.exports = controller2;
