@@ -1,0 +1,20 @@
+[ 
+    {
+        "id":1,
+        "nombre":"FCI Acciones",
+        "tipo":"Bajo riesgo",
+        "descripcion":"Inversión en conjunto de acciones que garantiza una renta baja."
+    },
+    {
+        "id":2,
+        "nombre":"FCI Granos",
+        "tipo":"Riesgo moderado",
+        "descripcion":"Inversión en bonos con respaldo en granos con el que se puede obtener una renta media."
+    },
+    {
+        "id":3,
+        "nombre":"NSP Solar Coin",
+        "tipo":"Alto riesgo",
+        "descripcion":"Inversión en crypto con la que se puede obtener una renta mucho mas alta, asumiendo un riesgo mayor."
+    }
+]

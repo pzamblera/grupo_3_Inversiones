@@ -1,0 +1,10 @@
+[
+    {
+        "isUsuario":"",
+        "nombre":"",
+        "apellido":"",
+        "email":"",
+        "monto":0,
+        "pass":""
+    }
+]
