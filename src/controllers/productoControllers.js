@@ -96,28 +96,27 @@ const controller2 = {
 
         res.redirect('/');
     },*/
-    /*  Baja
+    //  Baja
     destroy : (req, res) => {
 
         let id = req.params.id;
-        let ProductoEncontrado;
-
-        let Nproducts = products.filter(function(e){
-            return id!=e.id;
-        })
+        let ProductoEncontrado="";
 
         for (let producto of products){
             if (producto.id == id){
                 ProductoEncontrado=producto;
             }
         }
-
-        fs.unlinkSync(path.join(__dirname, 'RUTA', ProductoEncontrado.imagen));
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(Nproducts,null,' '));
+        let Nproducts = products.filter(function(e){
+            return id!=e.id;
+        });
+           
+        fs.writeFileSync(productsFilePath, JSON.stringify(Nproducts,null,' '), 'utf-8');
+    
+        fs.unlinkSync(path.join(__dirname, '/../routes/products/', ProductoEncontrado.imagen));
 
         res.redirect('/');
-    }*/
+    }
 
 
 
