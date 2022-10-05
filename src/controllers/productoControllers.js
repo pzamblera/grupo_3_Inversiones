@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 //const { validationResult } = require('express-validator');
 
-//const productsFilePath = path.join(__dirname, '../RUTA');
-//const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
+const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 //const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -19,8 +19,23 @@ const controller2 = {
 	},
 
     crear2: (req, res) => {
-		console.log(req.body);
+		//console.log(req.body);
+        let datos = req.body;
+		let idNuevoActivo = (activos[activos.length-1].id)+1;
+		//let imagenNueva = 'qqqqq.jpg';
 
+		let nuevoActivo ={
+			"id": idNuevoActivo,
+			"nombre": datos.nombre,
+            "tipo": datos.tipo,
+			"descripcion": datos.descripcion,
+			//"image": imagenNueva
+		};
+
+		activos.push(nuevoActivo);
+		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
+
+		res.redirect('/');
 	}
 }
 
