@@ -10,7 +10,7 @@ const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const controller2 = {
     producto: (req, res) => {
           const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
-          res.render("producto",{productos: producto});
+          res.render("producto",{activos: activos});
      },
 
     //crear
@@ -19,106 +19,56 @@ const controller2 = {
 	},
 
     crear2: (req, res) => {
-		//console.log(req.body);
         let datos = req.body;
 		let idNuevoActivo = (activos[activos.length-1].id)+1;
-		//let imagenNueva = 'qqqqq.jpg';
 
 		let nuevoActivo ={
 			"id": idNuevoActivo,
 			"nombre": datos.nombre,
             "tipo": datos.tipo,
-			"descripcion": datos.descripcion,
-			//"image": imagenNueva
+			"descripcion": datos.descripcion
 		};
 
 		activos.push(nuevoActivo);
 		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
 
-		res.redirect('/');
-	}
-}
-
-     /*   //let nombreImagen = req.file.filename;
-
-        let productoNuevo =  {
-            id: idNuevo,
-            nombre: req.body.name ,
-            descripcion: req.body.description,
-            imagen: 'vacio.jpg'
-        };
-
-        products.push(productoNuevo);
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(producto,null,' '));
-
-        res.redirect('/');
-
-        
-        }
-        else{
-            res.render('VISTA', {errors: errors.array() } ); 
-        }
-
-        
-    },*/
+		res.redirect('/producto');
+	},
 
     //Actualizar
-    /*editar: (req, res) => {
+    editar: (req, res) => {
 
         let id = req.params.id;
-        let productoEncontrado;
+        let activoEncontrado=null;
 
-        for (let x of productos){
+        for (let x of activos){
             if (id==x.id){
-                productoEncontrado=x;
-            }
-        }
-
-        res.render('VISTA',{ProductoaEditar: productoEncontrado});
-    },
-
-    update: (req, res) => {
-        
-        let id = req.params.id;
-        let productoEncontrado;
-
-        for (let x of products){
-            if (id==x.id){
-                x.nombre= req.body.nombre;
-                x.descripcion= req.body.descripcion;
-                x.imagen= req.body.imagen;
+                activoEncontrado=x;
                 break;
             }
         }
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
+        res.render('editar',{activo: activoEncontrado});
+    },
 
-        res.redirect('/');
-    },*/
-    /*  Baja
-    destroy : (req, res) => {
+    actualizar: (req, res) => {
+        let idActivo = req.params.id;
+        let datosActivo = req.body;
 
-        let id = req.params.id;
-        let ProductoEncontrado;
+		for (let x of activos){
+			if (x.id==idActivo){
+				x.nombre = datosActivo.nombre;
+				x.tipo = datosActivo.tipo;
+				x.descripcion = datosActivo.descripcion;
+				break;
+			}
+		}
 
-        let Nproducts = products.filter(function(e){
-            return id!=e.id;
-        })
+		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
 
-        for (let producto of products){
-            if (producto.id == id){
-                ProductoEncontrado=producto;
-            }
-        }
-
-        fs.unlinkSync(path.join(__dirname, 'RUTA', ProductoEncontrado.imagen));
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(Nproducts,null,' '));
-
-        res.redirect('/');
-    }*/
-
+		res.redirect('/producto');        
+    }
+}
 
 
 
