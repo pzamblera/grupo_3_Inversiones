@@ -10,4 +10,7 @@ routerProducto.post("/crear", controller2.crear2)
 routerProducto.get("/editar/:id", controller2.editar)
 routerProducto.put("/editar/:id", controller2.actualizar)
 
+routerProducto.delete('/editar/:id', controller2.destroy)
+
+
 module.exports = routerProducto;

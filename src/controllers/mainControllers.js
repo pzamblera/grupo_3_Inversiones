@@ -18,6 +18,9 @@ const controller = {
     perfil: (req, res) => {
         res.render("perfil");
     },
+    administrador:(req, res) => {
+        res.render("administrador")
+    },
 };
 
 module.exports = controller;

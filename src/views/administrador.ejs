@@ -14,50 +14,35 @@
 
   <%- include('partials/header') %>
 
-      <section class="container">
-        <div class="row justify-content-around align-items-center">
-            <p class="col-5 imgPerfil alignTextPerfil"><i class="fa-solid fa-id-badge"></i></p>
-            <div class="col-7 fontSize">
-                <p>Nombre Usuario</p>
-                <p>Disponible para invertir:</p>
-                <p>$000.000,00</p>
-            </div>
-        </div>
-      </section>
       <section class="vh70">
         <div>
-            <h2 class="carteraCentrado">Cartera de inversiones</h2>
+            <h2 class="carteraCentrado">CRUD</h2>
+            <a href="/producto/crear"><button type="button" class="btn btn-success colorButton">CREAR</button></a>
         </div>
         <div class="container">
             <div class="row justify-content-around">
                 <div class="col-4 card">
                     <p class="alignTextPerfil"><i class="fa-solid fa-group-arrows-rotate cardIcon"> </i></p>
                     <p>Fondo Común de Inversión</p>
-                    <p>Total invertido:</p>
-                    <p>$000.000,00</p>
-                    <div>
-                        <button type="button" class="btn btn-success colorButton">Invertir</button>
-                        <button type="button" class="btn btn-secondary">Retirar</button>
+                    <div>   
+                      <a href="/producto/editar"><button type="button" class="btn btn-secondary">EDITAR</button></a>
+                      <button type="button" class="btn btn-secondary">ELIMINAR</button>
                     </div>
                 </div>
                 <div class="col-4 card">
                     <p><i class="fa-solid fa-seedling cardIcon"></i></p>
                     <p>Inversión Campo</p>
-                    <p>Total invertido:</p>
-                    <p>$000.000,00</p>
                     <div>
-                        <button type="button" class="btn btn-success colorButton">Invertir</button>
-                        <button type="button" class="btn btn-secondary">Retirar</button>
+                        <button type="button" class="btn btn-secondary">EDITAR</button>
+                        <button type="button" class="btn btn-secondary">ELIMINAR</button>
                     </div>
                 </div>
                 <div class="col-4 card">
                     <p><i class="fa-solid fa-coins cardIcon"></i></p>
                     <p>NSPCoin</p>
-                    <p>Total invertido:</p>
-                    <p>$000.000,00</p>
                     <div>
-                        <button type="button" class="btn btn-success colorButton">Invertir</button>
-                        <button type="button" class="btn btn-secondary">Retirar</button>
+                        <button type="button" class="btn btn-secondary">EDITAR</button>
+                        <button type="button" class="btn btn-secondary">ELIMINAR</button>
                     </div>
                 </div>                        
             </div>

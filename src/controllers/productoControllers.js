@@ -67,8 +67,20 @@ const controller2 = {
 		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
 
 		res.redirect('/producto');        
+    },
+    // Para eliminar un producto
+    destroy : (req, res) => {
+        let idActivoX = req.params.id;
+
+        let nuevaListaDeActivos = activos.filter(function(e){
+            return e.id!=idActivoX
+        });
+
+        fs.writeFileSync(productsFilePath,JSON.stringify(nuevaListaDeActivos, null, " "),'utf-8');
+
+        res.redirect('/producto');    
     }
-}
+};
 
 
 
