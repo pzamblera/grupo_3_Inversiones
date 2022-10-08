@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-//const productsFilePath = path.join(__dirname, '../RUTA');
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
+const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
     login: (req, res) => {
@@ -19,7 +18,8 @@ const controller = {
         res.render("perfil");
     },
     administrador:(req, res) => {
-        res.render("administrador")
+        const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        res.render("administrador",{activos: activos})
     },
 };
 

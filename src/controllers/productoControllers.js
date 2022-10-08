@@ -21,18 +21,28 @@ const controller2 = {
     crear2: (req, res) => {
         let datos = req.body;
 		let idNuevoActivo = (activos[activos.length-1].id)+1;
+        let iconNSP = "";
+        if(datos.tipo == "Bajo riesgo"){
+            iconNSP = "cfa-group-arrows-rotate";
+            }
+            if(datos.tipo == "Riesgo medio"){
+                iconNSP = "fa-seedling";
+            }else{
+                iconNSP = "fa-coins";
+            };
 
 		let nuevoActivo ={
 			"id": idNuevoActivo,
 			"nombre": datos.nombre,
             "tipo": datos.tipo,
-			"descripcion": datos.descripcion
+			"descripcion": datos.descripcion,
+            "icono": iconNSP
 		};
 
 		activos.push(nuevoActivo);
 		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
 
-		res.redirect('/producto');
+		res.redirect('/administrador');
 	},
 
     //Actualizar
@@ -54,19 +64,29 @@ const controller2 = {
     actualizar: (req, res) => {
         let idActivo = req.params.id;
         let datosActivo = req.body;
+        let iconNSP = "";
+        if(datos.tipo == "Bajo riesgo"){
+            iconNSP = "cfa-group-arrows-rotate";
+            }
+            if(datos.tipo == "Riesgo medio"){
+                iconNSP = "fa-seedling";
+            }else{
+                iconNSP = "fa-coins";
+            };
 
 		for (let x of activos){
 			if (x.id==idActivo){
 				x.nombre = datosActivo.nombre;
 				x.tipo = datosActivo.tipo;
 				x.descripcion = datosActivo.descripcion;
+                x.id= iconNSP;
 				break;
 			}
 		}
 
 		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
 
-		res.redirect('/producto');        
+		res.redirect('/administrador');        
     },
     // Para eliminar un producto
     destroy : (req, res) => {
@@ -78,7 +98,7 @@ const controller2 = {
 
         fs.writeFileSync(productsFilePath,JSON.stringify(nuevaListaDeActivos, null, " "),'utf-8');
 
-        res.redirect('/producto');    
+        res.redirect('/administrador');    
     }
 };
 
