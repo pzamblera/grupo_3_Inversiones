@@ -19,5 +19,26 @@
   "tipo": "Alto riesgo",
   "descripcion": "Inversión en crypto con la que se puede obtener una renta mucho mas alta, asumiendo un riesgo mayor.",
   "icono": "fa-coins"
+ },
+ {
+  "id": 4,
+  "nombre": "Prueba 1",
+  "tipo": "Alto riesgo",
+  "descripcion": "qweqewqwe",
+  "icono": "fa-coins"
+ },
+ {
+  "id": 5,
+  "nombre": "Prueba 2",
+  "tipo": "Riesgo medio",
+  "descripcion": "asdasd",
+  "icono": "fa-seedling"
+ },
+ {
+  "id": 6,
+  "nombre": "prueba 3",
+  "tipo": "Bajo riesgo",
+  "descripcion": "zxczxc",
+  "icono": "fa-group-arrows-rotate"
  }
 ]
