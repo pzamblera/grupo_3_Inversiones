@@ -22,9 +22,23 @@
  },
  {
   "id": 4,
-  "nombre": "dadas",
-  "tipo": "Riesgo medio",
-  "descripcion": "sdjbdsfc",
-  "icono": "fa-seedling"
+  "nombre": "cafetera",
+  "tipo": "Riesgo alto",
+  "descripcion": "Cafe",
+  "icono": "fa-coins"
+ },
+ {
+  "id": 5,
+  "nombre": "Pablo Martín",
+  "tipo": "Riesgo alto",
+  "descripcion": "Cafe",
+  "icono": "fa-coins"
+ },
+ {
+  "id": 6,
+  "nombre": "pmz",
+  "tipo": "ll",
+  "descripcion": "otro",
+  "icono": "fa-coins"
  }
 ]
