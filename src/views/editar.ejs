@@ -29,12 +29,12 @@
     <br>
     <div class="botones">
     <button type="submit" class="btn btn-success colorButton">Editar</button>
-    <form action="/producto/editar/<%= activo.id %>?_method=DELETE" method="POST">
-        <button type="submit" class="btn btn-success colorButton">Eliminar</button>
-    </form>
+    
     </div>
 </form>
-
+<form action="/producto/editar/<%= activo.id %>?_method=DELETE" method="POST">
+    <button type="submit" class="btn btn-success colorButton">Eliminar</button>
+</form>
 
 <%- include('partials/footer') %>
 

@@ -19,19 +19,5 @@
   "tipo": "Alto riesgo",
   "descripcion": "Inversión en crypto con la que se puede obtener una renta mucho mas alta, asumiendo un riesgo mayor.",
   "icono": "fa-coins"
- },
- {
-  "id": 4,
-  "nombre": "dadas",
-  "tipo": "Riesgo medio",
-  "descripcion": "sdjbdsfc",
-  "icono": "fa-seedling"
- },
- {
-  "id": 5,
-  "nombre": "wdasds",
-  "tipo": "Bajo riesgo",
-  "descripcion": "njkczbiwencda",
-  "icono": "fa-coins"
  }
 ]
