@@ -26,5 +26,12 @@
   "tipo": "Riesgo medio",
   "descripcion": "sdjbdsfc",
   "icono": "fa-seedling"
+ },
+ {
+  "id": 5,
+  "nombre": "wdasds",
+  "tipo": "Bajo riesgo",
+  "descripcion": "njkczbiwencda",
+  "icono": "fa-coins"
  }
 ]
