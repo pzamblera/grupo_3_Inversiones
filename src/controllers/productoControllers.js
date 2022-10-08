@@ -23,13 +23,14 @@ const controller2 = {
 		let idNuevoActivo = (activos[activos.length-1].id)+1;
         let iconNSP = "";
         if(datos.tipo == "Bajo riesgo"){
-            iconNSP = "cfa-group-arrows-rotate";
-            }
-            if(datos.tipo == "Riesgo medio"){
-                iconNSP = "fa-seedling";
-            }else{
-                iconNSP = "fa-coins";
-            };
+            iconNSP = "fa-group-arrows-rotate";
+        }
+        if(datos.tipo == "Riesgo medio"){
+            iconNSP = "fa-seedling";
+        }
+        if(datos.tipo == "Alto riesgo"){
+            iconNSP = "fa-coins";
+        };
 
 		let nuevoActivo ={
 			"id": idNuevoActivo,
@@ -65,21 +66,22 @@ const controller2 = {
         let idActivo = req.params.id;
         let datosActivo = req.body;
         let iconNSP = "";
-        if(datos.tipo == "Bajo riesgo"){
-            iconNSP = "cfa-group-arrows-rotate";
-            }
-            if(datos.tipo == "Riesgo medio"){
-                iconNSP = "fa-seedling";
-            }else{
-                iconNSP = "fa-coins";
-            };
+        if(datosActivo.tipo == "Bajo riesgo"){
+            iconNSP = "fa-group-arrows-rotate";
+        }
+        if(datosActivo.tipo == "Riesgo medio"){
+            iconNSP = "fa-seedling";
+        }
+        if(datosActivo.tipo == "Alto riesgo"){
+            iconNSP = "fa-coins";
+        };
 
 		for (let x of activos){
 			if (x.id==idActivo){
 				x.nombre = datosActivo.nombre;
 				x.tipo = datosActivo.tipo;
 				x.descripcion = datosActivo.descripcion;
-                x.id= iconNSP;
+                x.icono= iconNSP;
 				break;
 			}
 		}
@@ -93,7 +95,7 @@ const controller2 = {
         let idActivoX = req.params.id;
 
         let nuevaListaDeActivos = activos.filter(function(e){
-            return e.id!=idActivoX
+            return e.id!=idActivoX;
         });
 
         fs.writeFileSync(productsFilePath,JSON.stringify(nuevaListaDeActivos, null, " "),'utf-8');
