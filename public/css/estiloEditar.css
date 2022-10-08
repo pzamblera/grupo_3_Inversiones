@@ -1,0 +1,12 @@
+.form-edit{
+    padding: 30px;
+    background-color:  #23da5a;
+    font-size: 20px;
+    min-height: 30vh;
+}
+.botones {
+    padding-top: 6px;
+}
+.campo {
+    padding: 5px;
+}
