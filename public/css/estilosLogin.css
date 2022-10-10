@@ -83,10 +83,10 @@ body {
   }
   
   .bg-image {
-    background-image: url("./img/duotone (1)");
     background-size: cover;
     background-position: center;
   }
+  
   
 
   
@@ -123,11 +123,6 @@ body {
     min-height: 100vh;
   }
   
-  .bg-image {
-    background-image: url('file:///C:/Users/Admin/Desktop/digital%20house%20FS/PROYECTO%20GRUPAL/pablo/grupo_3_Inversiones%20v2/public/img/duotone%20(3).png');
-    background-size: cover;
-    background-position: center;
-  }
   
   .login-heading {
     font-weight: 300;
