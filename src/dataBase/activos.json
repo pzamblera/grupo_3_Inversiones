@@ -23,9 +23,9 @@
  {
   "id": 4,
   "nombre": "Prueba 1",
-  "tipo": "Alto riesgo",
+  "tipo": "Bajo riesgo",
   "descripcion": "qweqewqwe",
-  "icono": "fa-coins"
+  "icono": "fa-group-arrows-rotate"
  },
  {
   "id": 5,

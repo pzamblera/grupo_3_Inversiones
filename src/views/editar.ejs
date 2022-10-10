@@ -15,27 +15,32 @@
 
 <%- include('partials/header') %>
 
-<form class="form-edit" action="/producto/editar/<%=activo.id%>?_method=PUT" method="POST">
-    
-
-    <label class="campo" for="">Nombre</label>
-    <input type="text" name="nombre" value="<%=activo.nombre%>">
-    <br>
-    <label class="campo" for="">Tipo</label>
-    <input type="text" name="tipo" value="<%=activo.tipo%>">
-    <br>
+<section class="bodyCrud">
+    <form class="form-edit" action="/producto/editar/<%=activo.id%>?_method=PUT" method="POST">
+        <label class="campo" for="">Nombre</label>
+        <input type="text" name="nombre" value="<%=activo.nombre%>">
+        <br>
+        <label for="">Tipo Actual: <%=activo.tipo%></label>
+        <br>
+        <label class="campo" for="">Nuevo Tipo: </label>
+        <select name="tipo" id="">
+            <option value="Bajo riesgo">Bajo riesgo</option>
+            <option value="Riesgo medio">Riesgo medio</option>
+            <option value="Alto riesgo">Alto riesgo</option>
+        </select>    
+        <br>
     <label class="campo" for="">Descripción</label>
     <input type="text" name="descripcion" value="<%=activo.descripcion%>">
     <br>
     <div class="botones">
-    <button type="submit" class="btn btn-success colorButton">Editar</button>
-    
+    <button type="submit" class="btn btn-secondary">EDITAR</button>
+    <a href="/administrador"><button type="button" class="btn btn-secondary">VOLVER</button></a>
+    </form>
+    <form action="/producto/editar/<%= activo.id %>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-secondary">ELIMINAR</button>
+    </form>
     </div>
-</form>
-<form action="/producto/editar/<%= activo.id %>?_method=DELETE" method="POST">
-    <button type="submit" class="btn btn-success colorButton">Eliminar</button>
-</form>
-
+</section>
 <%- include('partials/footer') %>
 
 </body>
