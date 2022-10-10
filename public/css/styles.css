@@ -8,7 +8,6 @@ header {
     height: 4.5rem;
     width: 100%;
     background-color: #030114;
-    z-index: 200;
 }
 
 /*
@@ -51,6 +50,12 @@ header {
 
 .navTextColor{
     color: #f8f4f4; 
+}
+
+.navButtonColor{
+    color: #f8f4f4; 
+    border: #f8f4f4;
+    background-color: #f8f4f4;
 }
 
 .navTextColor:hover{
