@@ -14,22 +14,35 @@
 
 <body class="mainStyle">
     <%- include('partials/header') %>
-
+    
+<section class="bodyCrud">
     <form class="form-edit" action="/producto/crear" method="post">
-        <label class="campo"  for="">Nombre</label>
-        <input type="text" name="nombre">
-        <br>
-        <label class="campo" for="">Tipo</label>
-        <input type="text" name="tipo">
-        <br>
+        <div>
+            <label class="campo"  for="">Nombre</label>
+            <input type="text" name="nombre">
+            <br>
+        </div>
+        <div>
+            <label class="campo" for="">Tipo</label>
+            <select name="tipo" id="">
+                <option value="Bajo riesgo"> Bajo riesgo</option>
+                <option value="Riesgo medio">Riesgo medio</option>
+                <option value="Alto riesgo">Alto riesgo</option>  
+                </select>
+            <br>
+        </div>
+        <div>
+        </div>    
         <label class="campo" for="">Descripción</label>
         <input type="text" name="descripcion">
         <br>
         <div class="botones">
-        <button type="submit" class="btn btn-success colorButton">Crear</button>
-        <a href="/administrador"><button type="button" class="btn btn-success colorButton">VOLVER</button></a>
+        <button type="submit" class="btn btn-secondary">CREAR</button>
+        <a href="/administrador"><button type="button" class="btn btn-secondary">VOLVER</button></a>
         </div>
     </form>
+</section>
+
 
 <%- include('partials/footer') %>
 

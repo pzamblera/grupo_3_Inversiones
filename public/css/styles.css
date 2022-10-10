@@ -11,6 +11,25 @@ header {
     z-index: 200;
 }
 
+/*
+.hamburger-button {
+    background-color: #f8f4f4;
+    color: #23da5a;
+    display: none;
+    max-width: 100px;
+    padding: 5px 0px;
+    text-align: center;
+    font-size: 18px;
+    margin: auto;
+}
+
+@media (max-width: 991px){
+    .hamburger-button {
+        display: flex;
+    }
+}
+*/
+
 .mainStyle{
     background-color: #f8f4f4;
     color: #030114;
@@ -168,3 +187,16 @@ color: #f8f4f4;
 .activoCard {
     display: block;
   }
+
+.crud {
+    background-color: #23da5a;
+    color: #030114;
+}
+
+.bodyCrud {
+    min-height: 75vh;
+    background-color: #23da5a;
+    padding: 15px;
+
+
+}
