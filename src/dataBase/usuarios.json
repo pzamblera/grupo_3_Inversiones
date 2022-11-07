@@ -1,10 +1,11 @@
 [
-    {
-        "isUsuario":"",
-        "nombre":"",
-        "apellido":"",
-        "email":"",
-        "monto":0,
-        "pass":""
-    }
+ {
+  "idUsuario": 1,
+  "nombre": "",
+  "apellido": "",
+  "email": "",
+  "monto": 0,
+  "contrasena": "",
+  "avatar": ""
+ }
 ]
