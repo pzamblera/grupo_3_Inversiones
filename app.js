@@ -1,10 +1,18 @@
 const express = require('express');
+const session = require('express-session');
 const path = require("path");
 const router = require('./src/routes/main');
 const routerProducto = require("./src/routes/producto")
 const methodOverride =  require('method-override');
 
 const app = express();
+
+app.use(session({
+    secret: "Secreto",
+    resave: false,
+    saveUninitialized: false,
+}));
+
 app.set("views",path.join(__dirname,"./src/views"))
 app.set("view engine","ejs");
 

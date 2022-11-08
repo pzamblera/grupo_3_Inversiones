@@ -21,6 +21,7 @@ router.get("/login", controller.login)
 router.get("/registro", controller.registro)
 router.post("/registro", uploadFile.single("avatar"), controller.registro2)
 router.get("/perfil", controller.perfil)
+router.post("/perfil", controller.loginProcess)
 router.get("/administrador", controller.administrador)
 
 

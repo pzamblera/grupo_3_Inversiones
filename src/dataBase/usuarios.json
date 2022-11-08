@@ -5,7 +5,16 @@
   "apellido": "",
   "email": "",
   "monto": 0,
-  "contrasena": "",
+  "pass": "",
   "avatar": ""
+ },
+ {
+  "idUsuario": 2,
+  "nombre": "Emiliano",
+  "apellido": "Agüero",
+  "email": "emi.emi3393@gmail.com",
+  "monto": 0,
+  "pass": "$2a$10$X0iZ5fYxErt30WIdorCzFu1J5B5JcscKvxuHYvW4BpaIQHUzg4dMy",
+  "avatar": "1667866039865.jpg"
  }
 ]
