@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
+const {body, check, validationResult} = require("express-validator");
 
 const usuariosFilePath = path.join(__dirname, '../dataBase/usuarios.json');
 const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
@@ -8,6 +9,15 @@ const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 const controller = {
     login: (req, res) => {
         res.render("login");
+    },
+    processLogin: function(req, res) {
+        let errors = validationResult(req);
+        if (errors.isEmpty()){
+           
+        } else {
+            return res.render("login", {errors: errors.errors})
+        }
+
     },
     registro: (req, res) => {
         res.render("registro");
@@ -41,7 +51,7 @@ const controller = {
         res.render("perfil");
     },
     administrador:(req, res) => {
-        const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        const activos = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
         res.render("administrador",{activos: activos})
     },
 };
