@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const controller = require("../controllers/mainControllers");
-const {body, check} = require("express-validator");
+/*const {body, check} = require("express-validator");*/
 
 /* const validaciones = [
     body("correoElectronico").isEmail().withMessage("Completar al campo con un mail válido"),
