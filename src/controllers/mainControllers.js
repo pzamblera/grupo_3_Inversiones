@@ -53,7 +53,7 @@ const controller = {
         });
     },
     administrador:(req, res) => {
-        const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        const activos = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
         res.render("administrador",{activos: activos})
     },
 };
