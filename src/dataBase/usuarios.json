@@ -16,5 +16,14 @@
   "monto": 0,
   "pass": "$2a$10$X0iZ5fYxErt30WIdorCzFu1J5B5JcscKvxuHYvW4BpaIQHUzg4dMy",
   "avatar": "1667866039865.jpg"
+ },
+ {
+  "idUsuario": 3,
+  "nombre": "Ignacio",
+  "apellido": "Barrenechea",
+  "email": "ibarrenechea79@gmail.com",
+  "monto": 0,
+  "pass": "$2a$10$kLKIa4sYfKXMGQn8MUq0WedH8/vTgQtSLsEONCoQJief161Ip5Duu",
+  "avatar": "1667932480815.jpg"
  }
 ]
