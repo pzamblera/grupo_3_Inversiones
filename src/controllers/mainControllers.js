@@ -10,7 +10,7 @@ const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 const controller = {
     login: (req, res) => {
         res.render("login");
-    },
+    },    
     loginProcess: (req, res) => {
         let userToLogin = User.findByField("email", req.body.email);
         if(userToLogin) {
@@ -21,7 +21,7 @@ const controller = {
                 return res.redirect("/perfil")
             }
         }console.log(userToLogin.contrasena)
-    },    
+    },
     registro: (req, res) => {
         res.render("registro");
     }, 

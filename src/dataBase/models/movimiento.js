@@ -10,6 +10,12 @@ function movimientosInversion(sequelize, Datatypes){
     let c = {camelCase: false, timestamps: false}; 
   
     const movimientos = sequelize.define(a,b,c)
+    movimientos.associate = function (modelos){
+      movimientos.hasMany(modelos.historial_movimiento, {
+        as:"historial",
+        foreignKey: "id_movimiento"
+      })
+    }
   
     return movimientos;
   }

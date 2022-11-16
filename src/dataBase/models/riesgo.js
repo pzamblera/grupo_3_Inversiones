@@ -10,6 +10,13 @@ function tipoDeRiesgo(sequelize, Datatypes){
     let c = {camelCase: false, timestamps: false}; 
   
     const riesgos = sequelize.define(a,b,c)
+    
+    riesgos.associate = function (modelos){
+      riesgos.belongsTo(modelos.inversion, {
+        as:"inversiones",
+        foreignKey: "id_riesgo"
+      })
+    }
   
     return riesgos;
   }
