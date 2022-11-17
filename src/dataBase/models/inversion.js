@@ -9,7 +9,7 @@ function carteraInversion(sequelize, Datatypes){
       id_riesgo: { type: Datatypes.INTEGER}
     }
   
-    let c = {camelCase: false, timestamps: false}; 
+    let c = {camelCase: false, timestamps: false, tableName:"inversion"}; 
   
     const inversiones = sequelize.define(a,b,c)
 
@@ -21,7 +21,7 @@ function carteraInversion(sequelize, Datatypes){
     }
 
     inversiones.associate = function (modeloDos){
-      inversiones.hasMany(modeloDos.riesgo, {
+      inversiones.belongsTo(modeloDos.riesgo, {
         as:"riesgos",
         foreignKey: "id_riesgo"
       })

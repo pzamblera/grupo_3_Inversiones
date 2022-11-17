@@ -7,12 +7,12 @@ function tipoDeRiesgo(sequelize, Datatypes){
       nombre_riesgo: {type: Datatypes.STRING(50)}
     }
   
-    let c = {camelCase: false, timestamps: false}; 
+    let c = {camelCase: false, timestamps: false, tableName:"riesgo"}; 
   
     const riesgos = sequelize.define(a,b,c)
     
     riesgos.associate = function (modelos){
-      riesgos.belongsTo(modelos.inversion, {
+      riesgos.hasMany(modelos.inversion, {
         as:"inversiones",
         foreignKey: "id_riesgo"
       })

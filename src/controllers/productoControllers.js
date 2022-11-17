@@ -10,18 +10,17 @@ const db=require("../dataBase/models")
 //const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller2 = {
-
-//    prueba: (req, res) => {
-//        db.riesgo.findAll().then((riesgos) => {
-//            let listaRiesgos=[];      
-//            res.render("producto",{Allriesgos:listaRiesgos})
-//       })
-//    },
-
     producto: (req, res) => {
-         const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
-          res.render("producto",{activos: activos});
-    },
+      //  prueba: (req, res) => {
+            db.riesgo.findAll().then((resultado) => {
+     //           let listadoDeMovimiento=[];      
+     //           res.render("producto") // {Allmovimiento:listaRiesgos})
+            console.log(resultado)
+    })
+        },
+//         const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
+//          res.render("producto",{activos: activos});
+//    },
 
     //crear
     crear1: (req, res) => {

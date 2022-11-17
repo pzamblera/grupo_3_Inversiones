@@ -13,7 +13,7 @@ function listaUsuarios(sequelize, Datatypes){
       administrador: {type: Datatypes.BOOLEAN} //ver si esta bien este tipo de dato, en nuestra base de datos, esta como "BIT"
     }
   
-    let c = {camelCase: false, timestamps: false}; 
+    let c = {camelCase: false, timestamps: false, tableName: "usuario"}; 
   
     const usuarios = sequelize.define(a,b,c)
     usuarios.associate = function (modelos){

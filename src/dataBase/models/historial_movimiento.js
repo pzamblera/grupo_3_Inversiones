@@ -13,7 +13,7 @@ function historialMov(sequelize, Datatypes){
       id_inversion: {type: Datatypes.INTEGER}
     }
   
-    let c = {camelCase: false, timestamps: false}; //hay que ver si va false en timestamps, porque aca tenemos atributos que son fecha!
+    let c = {camelCase: false, timestamps: false, tableName: "historial_movimiento"}; //hay que ver si va false en timestamps, porque aca tenemos atributos que son fecha!
   
     const historial = sequelize.define(a,b,c)
 
