@@ -7,7 +7,7 @@ function movimientosInversion(sequelize, Datatypes){
       nombre: {type: Datatypes.STRING(50)}
     }
   
-    let c = {camelCase: false, timestamps: false, tableName:"movimiento"}; 
+    let c = {camelCase: false, timestamps: false, tableName:"Movimiento"}; 
   
     const movimientos = sequelize.define(a,b,c)
     movimientos.associate = function (modelos){

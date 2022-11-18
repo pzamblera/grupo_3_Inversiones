@@ -7,7 +7,7 @@ function tipoDeRiesgo(sequelize, Datatypes){
       nombre_riesgo: {type: Datatypes.STRING(50)}
     }
   
-    let c = {camelCase: false, timestamps: false, tableName:"riesgo"}; 
+    let c = {camelCase: false, timestamps: false, tableName:"Riesgo"}; 
   
     const riesgos = sequelize.define(a,b,c)
     

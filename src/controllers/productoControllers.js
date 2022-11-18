@@ -15,7 +15,8 @@ const controller2 = {
             db.riesgo.findAll().then((resultado) => {
      //           let listadoDeMovimiento=[];      
      //           res.render("producto") // {Allmovimiento:listaRiesgos})
-            console.log(resultado)
+     let resultado1 = resultado
+            console.log(resultado1)
     })
         },
 //         const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
