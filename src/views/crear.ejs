@@ -25,9 +25,13 @@
         <div>
             <label class="campo" for="">Tipo</label>
             <select name="tipo" id="">
-                <option value="Bajo riesgo"> Bajo riesgo</option>
+                <% fot (let i=0; i < riesgo.length; i++) { %>
+                <option value="<%=riesgo[i].id%>">
+                    <%=riesgo[i].nombre_riesgo%>
+                </option>
                 <option value="Riesgo medio">Riesgo medio</option>
                 <option value="Alto riesgo">Alto riesgo</option>  
+                <% } %>
                 </select>
             <br>
         </div>
