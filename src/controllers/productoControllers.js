@@ -10,27 +10,24 @@ const db=require("../dataBase/models")
 //const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller2 = {
-    producto: (req, res) => {
-      //  prueba: (req, res) => {
-            db.riesgo.findAll().then((resultado) => {
-     //           let listadoDeMovimiento=[];      
-     //           res.render("producto") // {Allmovimiento:listaRiesgos})
-     let resultado1 = resultado
-            console.log(resultado1)
-    })
-        },
-//         const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
-//          res.render("producto",{activos: activos});
-//    },
+    producto: function (req, res) {
+        db.inversion.findAll().then(function(inversion) {    
+        res.render("producto"), {inversion:inversion}
+        })
+    
+    },
 
     //crear
-    crear1: (req, res) => {
-        res.render('crear');
+    crear1: function (req, res) {
+        db.riesgo.findAll()
+        .then(function(riesgo) {    
+            res.render('crear', {riesgo:riesgo})
+            });
 	},
 
     crear2: (req, res) => {
         let datos = req.body;
-		let idNuevoActivo = (activos[activos.length-1].id)+1;
+        console.log(datos)
         let iconNSP = "";
         if(datos.tipo == "Bajo riesgo"){
             iconNSP = "fa-group-arrows-rotate";
@@ -41,17 +38,18 @@ const controller2 = {
         if(datos.tipo == "Alto riesgo"){
             iconNSP = "fa-coins";
         };
+        
+        db.inversion.create(
 
-		let nuevoActivo ={
-			"id": idNuevoActivo,
-			"nombre": datos.nombre,
-            "tipo": datos.tipo,
-			"descripcion": datos.descripcion,
-            "icono": iconNSP
-		};
+		{
+			nombre_inversion: datos.nombre_inversion,
+            id_riesgo: datos.id_riesgo,
+			descripcion: datos.descripcion,
+            /*icono: iconNSP*/
+		}
+        )
 
-		activos.push(nuevoActivo);
-		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
+
 
 		res.redirect('/administrador');
 	},

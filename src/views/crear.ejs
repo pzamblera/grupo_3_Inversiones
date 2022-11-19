@@ -14,20 +14,27 @@
 
 <body class="mainStyle">
     <%- include('partials/header') %>
+
+
     
 <section class="bodyCrud">
     <form class="form-edit" action="/producto/crear" method="post">
         <div>
             <label class="campo"  for="">Nombre</label>
-            <input type="text" name="nombre">
+            <input type="text" name="nombre_inversion">
             <br>
         </div>
         <div>
             <label class="campo" for="">Tipo</label>
-            <select name="tipo" id="">
-                <option value="Bajo riesgo"> Bajo riesgo</option>
+            <select name="id_riesgo" id="">
+                <%for(let i=0; i<riesgo.length; i++ ){%>
+                    <option value="<%=riesgo[i].id_riesgo%>"><%=riesgo[i].nombre_riesgo%></option>
+                <%}%>
+                
+                    
+            <!--option value="Bajo riesgo"> Bajo riesgo</option>
                 <option value="Riesgo medio">Riesgo medio</option>
-                <option value="Alto riesgo">Alto riesgo</option>  
+                <option value="Alto riesgo">Alto riesgo</option-->  
                 </select>
             <br>
         </div>

@@ -11,20 +11,20 @@ function carteraInversion(sequelize, Datatypes){
   
     let c = {camelCase: false, timestamps: false, tableName:"Inversion"}; 
   
-    const inversiones = sequelize.define(a,b,c)
+    const inversion = sequelize.define(a,b,c)
 
-    inversiones.associate = function (modelos){
-      inversiones.hasMany(modelos.historial_movimiento, {
+    inversion.associate = function (modelos){
+      inversion.hasMany(modelos.historial_movimiento, {
         as:"historial",
         foreignKey: "id_inversion"
       });
-      inversiones.belongsTo(modelos.riesgo, {
+      inversion.belongsTo(modelos.riesgo, {
         as:"riesgos",
         foreignKey: "id_riesgo"
       })
     }
   
-    return inversiones;
+    return inversion;
   }
   
   
