@@ -1,48 +1,46 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-/*const User = require('../../models/User');*/
+const User = require('../../models/User');
 
-/*const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
+const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
 const usuariosFilePath = path.join(__dirname, '../dataBase/usuarios.json');
-const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));*/
-
-const db=require("../dataBase/models")
+const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 
 const controller = {
     login: (req, res) => {
         res.render("login");
     },    
     loginProcess: (req, res) => {
-        db.usuario.findOne({where: {email:req.body.email}}).then(function(userToLogin){
+        let userToLogin = User.findByField("email", req.body.email);
         if(userToLogin) {
-            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.clave);
+            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.pass);
             if(isOkThePassword){
-                delete userToLogin.clavea;
+                delete userToLogin.contrasena;
                 req.session.userLogged = userToLogin;
                 return res.redirect("/perfil")
             }
-        }console.log(userToLogin.clave)})
-
+        }console.log(userToLogin.contrasena)
     },
     registro: (req, res) => {
         res.render("registro");
     }, 
     registro2: (req, res) => {
         let datos = req.body;
+		let idNuevoUsuario = (usuarios[usuarios.length-1].idUsuario)+1;
         let cEncriptada = bcrypt.hashSync(datos.contrasena,10);
+		let nuevoUsuario ={
+			"idUsuario": idNuevoUsuario,
+			"nombre": datos.nombre,
+            "apellido": datos.apellido,
+			"email": datos.email,
+            "monto": 0,
+            "pass": cEncriptada,
+            "avatar": req.file.filename
+		};
 
-        db.usuario.create(
-            {
-                nombre: datos.nombre,
-                apellido: datos.apellido,
-                email: datos.email,
-                clave: cEncriptada,
-                avatar: req.file.filename,
-                monto_billetera: 0,
-                administrador: 0
-            }
-            )
+		usuarios.push(nuevoUsuario);
+		fs.writeFileSync(usuariosFilePath,JSON.stringify(usuarios, null, " "),'utf-8');
 
 		res.redirect('/login');
     }, 
@@ -55,10 +53,8 @@ const controller = {
         });
     },
     administrador:(req, res) => {
-        db.inversion.findAll()
-        .then(function(inversion){
-        res.render("administrador",{inversion: inversion})}
-        )
+        const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        res.render("administrador",{activos: activos})
     },
 };
 
