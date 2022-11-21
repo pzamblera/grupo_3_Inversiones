@@ -6,7 +6,8 @@ function carteraInversion(sequelize, Datatypes){
       id_inversion: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
       nombre_inversion: {type: Datatypes.STRING(50)},
       descripcion: {type: Datatypes.TEXT},
-      id_riesgo: { type: Datatypes.INTEGER}
+      id_riesgo: { type: Datatypes.INTEGER},
+      icono: {type: Datatypes.STRING(50)},
     }
   
     let c = {camelCase: false, timestamps: false, tableName:"Inversion"}; 

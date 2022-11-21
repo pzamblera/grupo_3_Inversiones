@@ -1,4 +1,4 @@
-const fs = require("fs")
+/*const fs = require("fs")
 
 const User = {
     fileName: "./src/dataBase/usuarios.json",
@@ -14,7 +14,7 @@ const User = {
         return lastUser.id + 1;
         }
         return 1;
-    },*/
+    },
 
     findAll: function(){
         return this.getData();
@@ -30,7 +30,7 @@ const User = {
         let allUsers = this.findAll();
         let userFound = allUsers.find(oneUser => oneUser[field] === text);
         return userFound;
-    }/*,
+    },
 
     create: function(userData){
         let allUsers = this.findAll();
@@ -41,8 +41,8 @@ const User = {
         allUsers.push(newUser);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         return true;
-    }*/
+    }
 
     
 }
-module.exports = User; 
+module.exports = User; */

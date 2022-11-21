@@ -14,7 +14,7 @@ const controller = {
         res.render("login");
     },    
     loginProcess: (req, res) => {
-        /*let userToLogin = */db.usuario.findOne({where: {email:req.body.email}}).then(function(userToLogin){
+        db.usuario.findOne({where: {email:req.body.email}}).then(function(userToLogin){
         if(userToLogin) {
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.clave);
             if(isOkThePassword){
@@ -55,8 +55,10 @@ const controller = {
         });
     },
     administrador:(req, res) => {
-        const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render("administrador",{activos: activos})
+        db.inversion.findAll()
+        .then(function(inversion){
+        res.render("administrador",{inversion: inversion})}
+        )
     },
 };
 

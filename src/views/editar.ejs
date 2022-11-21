@@ -16,27 +16,31 @@
 <%- include('partials/header') %>
 
 <section class="bodyCrud">
-    <form class="form-edit" action="/producto/editar/<%=activo.id%>?_method=PUT" method="POST">
+    <form class="form-edit" action="/producto/editar/<%=inversion.id_inversion%>?_method=PUT" method="POST">
         <label class="campo" for="">Nombre</label>
-        <input type="text" name="nombre" value="<%=activo.nombre%>">
+        <input type="text" name="nombre" value="<%=inversion.nombre_inversion%>">
         <br>
-        <label for="">Tipo Actual: <%=activo.tipo%></label>
+        <label for="">Tipo Actual: <%=inversion.riesgos.nombre_riesgo%></label>
         <br>
         <label class="campo" for="">Nuevo Tipo: </label>
         <select name="tipo" id="">
-            <option value="Bajo riesgo">Bajo riesgo</option>
-            <option value="Riesgo medio">Riesgo medio</option>
-            <option value="Alto riesgo">Alto riesgo</option>
+            <%for(let i=0; i<riesgo.length; i++ ){%>
+                <% if(riesgo[i].id_riesgo == inversion.id_riesgo) { %>
+                    <option value="<%=riesgo[i].id_riesgo%>" selected><%=riesgo[i].nombre_riesgo%></option>
+                <% } else { %>
+                    <option value="<%=riesgo[i].id_riesgo%>"><%=riesgo[i].nombre_riesgo%></option>    
+                <% } %>        
+            <% } %>
         </select>    
         <br>
     <label class="campo" for="">Descripción</label>
-    <input type="text" name="descripcion" value="<%=activo.descripcion%>">
+    <input type="text" name="descripcion" value="<%=inversion.descripcion%>">
     <br>
     <div class="botones">
     <button type="submit" class="btn btn-secondary">EDITAR</button>
     <a href="/administrador"><button type="button" class="btn btn-secondary">VOLVER</button></a>
     </form>
-    <form action="/producto/editar/<%= activo.id %>?_method=DELETE" method="POST">
+    <form action="/producto/editar/<%= inversion.id_inversion %>?_method=DELETE" method="POST">
         <button type="submit" class="btn btn-secondary">ELIMINAR</button>
     </form>
     </div>

@@ -32,6 +32,7 @@ header {
 .mainStyle{
     background-color: #f8f4f4;
     color: #030114;
+    min-height: 100vh;
 }
 
 .secondaryStyle{
@@ -204,4 +205,7 @@ color: #f8f4f4;
     padding: 15px;
 
 
+}
+.administrador{
+    min-height: 80vh;
 }
