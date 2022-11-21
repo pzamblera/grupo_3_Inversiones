@@ -1,118 +1,110 @@
 const fs = require('fs');
 const path = require('path');
-//const { validationResult } = require('express-validator');
 
-const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
-const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const { validationResult } = require('express-validator');
+// const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
+// const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const db=require("../dataBase/models")
 
 //const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller2 = {
-    producto: (req, res) => {
-      //  prueba: (req, res) => {
-            db.riesgo.findAll().then((resultado) => {
-     //           let listadoDeMovimiento=[];      
-     //           res.render("producto") // {Allmovimiento:listaRiesgos})
-            console.log(resultado)
-    })
-        },
-//         const producto = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
-//          res.render("producto",{activos: activos});
-//    },
+    producto: function (req, res) {
+        db.inversion.findAll().then(function(inversion) {    
+        res.render("producto"), {inversion:inversion}
+        })  
+    
+    },
 
     //crear
-    crear1: (req, res) => {
-        res.render('crear');
-	},
+    crear1: function (req, res) {
+        db.riesgo.findAll()
+        .then(function(riesgo) {    
+            res.render('crear', {riesgo:riesgo})
+            });
+	},      
 
     crear2: (req, res) => {
         let datos = req.body;
-		let idNuevoActivo = (activos[activos.length-1].id)+1;
+        console.log(datos)
         let iconNSP = "";
-        if(datos.tipo == "Bajo riesgo"){
+        if(datos.tipo == "1"){
             iconNSP = "fa-group-arrows-rotate";
         }
-        if(datos.tipo == "Riesgo medio"){
+        if(datos.tipo == "2"){
             iconNSP = "fa-seedling";
         }
-        if(datos.tipo == "Alto riesgo"){
+        if(datos.tipo == "3"){
             iconNSP = "fa-coins";
         };
+        
+        db.inversion.create(
 
-		let nuevoActivo ={
-			"id": idNuevoActivo,
-			"nombre": datos.nombre,
-            "tipo": datos.tipo,
-			"descripcion": datos.descripcion,
-            "icono": iconNSP
-		};
+		{
+			nombre_inversion: datos.nombre_inversion,
+            id_riesgo: datos.id_riesgo,
+			descripcion: datos.descripcion,
+            icono: iconNSP,
+		}
+        )   
+        .then(function(){
+            res.redirect('/administrador');
+        })
+	},  
 
-		activos.push(nuevoActivo);
-		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
-
-		res.redirect('/administrador');
-	},
 
     //Actualizar
-    editar: (req, res) => {
-
-        let id = req.params.id;
-        let activoEncontrado=null;
-
-        for (let x of activos){
-            if (id==x.id){
-                activoEncontrado=x;
-                break;
-            }
-        }
-
-        res.render('editar',{activo: activoEncontrado});
+    editar: function(req, res){
+        let activoEncontrado = db.inversion.findByPk(req.params.id, {include: [{association:"riesgos"}]});
+        let tiposDeRiesgos = db.riesgo.findAll();
+        Promise.all([activoEncontrado, tiposDeRiesgos])
+            .then(function([inversion, riesgo]){
+                res.render("editar", {inversion:inversion, riesgo:riesgo})
+            }) 
     },
 
     actualizar: (req, res) => {
-        let idActivo = req.params.id;
-        let datosActivo = req.body;
-        let iconNSP = "";
-        if(datosActivo.tipo == "Bajo riesgo"){
+        let datos = req.body;
+       let iconNSP = "";
+        if(datos.tipo == "1"){
             iconNSP = "fa-group-arrows-rotate";
         }
-        if(datosActivo.tipo == "Riesgo medio"){
+        if(datos.tipo == "2"){
             iconNSP = "fa-seedling";
         }
-        if(datosActivo.tipo == "Alto riesgo"){
+        if(datos.tipo == "3"){
             iconNSP = "fa-coins";
         };
-
-		for (let x of activos){
-			if (x.id==idActivo){
-				x.nombre = datosActivo.nombre;
-				x.tipo = datosActivo.tipo;
-				x.descripcion = datosActivo.descripcion;
-                x.icono= iconNSP;
-				break;
-			}
-		}
-
-		fs.writeFileSync(productsFilePath,JSON.stringify(activos, null, " "),'utf-8');
-
-		res.redirect('/administrador');        
-    },
+        
+        db.inversion.update(
+		{
+			nombre_inversion: datos. nombre,
+            id_riesgo: datos.tipo,
+			descripcion: datos.descripcion,
+            icono: iconNSP
+		}, {
+            where:{
+                id_inversion:req.params.id
+            }
+        }
+        )   
+        .then(function(){
+            res.redirect('/administrador');
+        })
+	},
+    
     // Para eliminar un producto
-    destroy : (req, res) => {
-        let idActivoX = req.params.id;
-
-        let nuevaListaDeActivos = activos.filter(function(e){
-            return e.id!=idActivoX;
-        });
-
-        fs.writeFileSync(productsFilePath,JSON.stringify(nuevaListaDeActivos, null, " "),'utf-8');
-
-        res.redirect('/administrador');    
+    destroy: function (req, res) {
+        db.inversion.destroy({
+            where: {
+                id_inversion: req.params.id
+            }
+        })        
+        .then(function(){
+            res.redirect('/administrador');
+        })  
     }
 };
-
-
 
 module.exports = controller2;

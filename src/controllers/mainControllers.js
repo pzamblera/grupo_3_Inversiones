@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
-
-const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
-const usuariosFilePath = path.join(__dirname, '../dataBase/usuarios.json');
-const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
+const db=require("../dataBase/models")
+// const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
+// const usuariosFilePath = path.join(__dirname, '../dataBase/usuarios.json');
+// const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
 
 const controller = {
     login: (req, res) => {
@@ -53,8 +53,10 @@ const controller = {
         });
     },
     administrador:(req, res) => {
-        const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render("administrador",{activos: activos})
+        db.inversion.findAll()
+        .then(function(inversion){
+        res.render("administrador",{inversion: inversion})}
+        )
     },
 };
 

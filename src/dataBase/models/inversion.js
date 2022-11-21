@@ -6,25 +6,26 @@ function carteraInversion(sequelize, Datatypes){
       id_inversion: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
       nombre_inversion: {type: Datatypes.STRING(50)},
       descripcion: {type: Datatypes.TEXT},
-      id_riesgo: { type: Datatypes.INTEGER}
+      id_riesgo: { type: Datatypes.INTEGER},
+      icono: {type: Datatypes.STRING(50)}
     }
   
-    let c = {camelCase: false, timestamps: false, tableName:"inversion"}; 
+    let c = {camelCase: false, timestamps: false, tableName:"Inversion"}; 
   
-    const inversiones = sequelize.define(a,b,c)
+    const inversion = sequelize.define(a,b,c)
 
-    inversiones.associate = function (modelos){
-      inversiones.hasMany(modelos.historial_movimiento, {
+    inversion.associate = function (modelos){
+      inversion.hasMany(modelos.historial_movimiento, {
         as:"historial",
         foreignKey: "id_inversion"
       });
-      inversiones.belongsTo(modelos.riesgo, {
+      inversion.belongsTo(modelos.riesgo, {
         as:"riesgos",
         foreignKey: "id_riesgo"
       })
     }
   
-    return inversiones;
+    return inversion;
   }
   
   
