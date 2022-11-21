@@ -7,13 +7,6 @@
   "icono": "fa-group-arrows-rotate"
  },
  {
-  "id": 2,
-  "nombre": "FCI Granos",
-  "tipo": "Riesgo medio",
-  "descripcion": "Inversión en bonos con respaldo en granos con el que se puede obtener una renta media.",
-  "icono": "fa-seedling"
- },
- {
   "id": 3,
   "nombre": "NSP Solar Coin",
   "tipo": "Alto riesgo",
@@ -33,12 +26,5 @@
   "tipo": "Riesgo medio",
   "descripcion": "asdasd",
   "icono": "fa-seedling"
- },
- {
-  "id": 6,
-  "nombre": "prueba 3",
-  "tipo": "Bajo riesgo",
-  "descripcion": "zxczxc",
-  "icono": "fa-group-arrows-rotate"
  }
 ]
