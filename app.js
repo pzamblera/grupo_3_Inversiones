@@ -7,11 +7,17 @@ const methodOverride =  require('method-override');
 
 const app = express();
 
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
+
+
+
 app.use(session({
     secret: "Secreto",
     resave: false,
     saveUninitialized: false,
 }));
+
+app.use(userLoggedMiddleware);
 
 app.set("views",path.join(__dirname,"./src/views"))
 app.set("view engine","ejs");

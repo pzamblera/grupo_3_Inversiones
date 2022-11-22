@@ -1,46 +1,49 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-const User = require('../../models/User');
+// const User = require('../../models/User');
 
-const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
+/*const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
 const usuariosFilePath = path.join(__dirname, '../dataBase/usuarios.json');
-const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));
+const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));*/
+
+const db=require("../dataBase/models")
 
 const controller = {
     login: (req, res) => {
         res.render("login");
     },    
     loginProcess: (req, res) => {
-        let userToLogin = User.findByField("email", req.body.email);
+        db.usuario.findOne({where: {email:req.body.email}}).then(function(userToLogin){
         if(userToLogin) {
-            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.pass);
+            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.clave);
             if(isOkThePassword){
-                delete userToLogin.contrasena;
+                delete userToLogin.clavea;
                 req.session.userLogged = userToLogin;
+                console.log(req.session.userLogged)
                 return res.redirect("/perfil")
             }
-        }console.log(userToLogin.contrasena)
+        }console.log(userToLogin.clave)})
+
     },
     registro: (req, res) => {
         res.render("registro");
     }, 
     registro2: (req, res) => {
         let datos = req.body;
-		let idNuevoUsuario = (usuarios[usuarios.length-1].idUsuario)+1;
         let cEncriptada = bcrypt.hashSync(datos.contrasena,10);
-		let nuevoUsuario ={
-			"idUsuario": idNuevoUsuario,
-			"nombre": datos.nombre,
-            "apellido": datos.apellido,
-			"email": datos.email,
-            "monto": 0,
-            "pass": cEncriptada,
-            "avatar": req.file.filename
-		};
 
-		usuarios.push(nuevoUsuario);
-		fs.writeFileSync(usuariosFilePath,JSON.stringify(usuarios, null, " "),'utf-8');
+        db.usuario.create(
+            {
+                nombre: datos.nombre,
+                apellido: datos.apellido,
+                email: datos.email,
+                clave: cEncriptada,
+                avatar: req.file.filename,
+                monto_billetera: 0,
+                administrador: 0
+            }
+            )
 
 		res.redirect('/login');
     }, 
@@ -53,9 +56,15 @@ const controller = {
         });
     },
     administrador:(req, res) => {
-        const activos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render("administrador",{activos: activos})
+        db.inversion.findAll()
+        .then(function(inversion){
+        res.render("administrador",{inversion: inversion})}
+        )
     },
+    logout: (req, res) => {
+        req.session.destroy();
+        return res.redirect("/")
+    }
 };
 
 module.exports = controller;
