@@ -27,23 +27,46 @@
               <form action="/registro" method="post" enctype="multipart/form-data">
   
                 <div class="form-floating mb-3">
-                  <input type="text" name="nombre" class="form-control" id="floatingInputUsername" placeholder="Nombre" required autofocus>
+                  <input type="text" name="nombre" class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>  " 
+                  id="floatingInputUsername" placeholder="Nombre" required autofocus
+                  value="<%= locals.oldData ? oldData.nombre : null %>">
+                  
                   <label for="floatingInputUsername">Nombre</label>
+                  <% if (locals.errors && errors.nombre) { %>
+                  <div class="text-danger">
+                    <%= errors.nombre.msg %>
+                  </div>
+                  <% } %>
                 </div>
 
                 <div class="form-floating mb-3">
                   <input type="text" name="apellido" class="form-control" placeholder="Apellido" required autofocus>
                   <label for="floatingInputUsername">Apellido</label>
+                  <% if (locals.errors && errors.apellido) { %>
+                    <div class="text-danger">
+                      <%= errors.apellido.msg %>
+                    </div>
+                    <% } %>
                 </div>
   
                 <div class="form-floating mb-3">
                   <input type="email" name="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
                   <label for="floatingInputEmail">Email</label>
+                  <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                      <%= errors.email.msg %>
+                    </div>
+                    <% } %>
                 </div>
           
                         <div class="form-floating mb-3">
                           <input type="password" name="contrasena" class="form-control" id="floatingPassword" placeholder="Password">
                           <label for="floatingPassword">Contraseña</label>
+                          <% if (locals.errors && errors.contrasena) { %>
+                            <div class="text-danger">
+                              <%= errors.contrasena.msg %>
+                            </div>
+                            <% } %>
                         </div>
                         
                         <div>

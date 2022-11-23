@@ -1,13 +1,11 @@
+const db = require("../dataBase/models");
+
 function userLoggedMiddleware (req, res, next) {
     res.locals.isLogged = false;
-    console.log(res.locals);
-    console.log(res.session);
-  
 
-    if(req.session && req.session.userLogged) {
-    console.log("ingrese al if")
-    console.log(req.session.userLogged); 
+    if(req.session.userLogged) {
         res.locals.isLogged = true;
+        res.locals.userLogged = req.session.userLogged
     };
 
     next();

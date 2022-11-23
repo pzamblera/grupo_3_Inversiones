@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
+const { validationResult } = require ("express-validator")
 // const User = require('../../models/User');
 
 /*const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
@@ -30,9 +31,11 @@ const controller = {
         res.render("registro");
     }, 
     registro2: (req, res) => {
-        let datos = req.body;
-        let cEncriptada = bcrypt.hashSync(datos.contrasena,10);
+        const resultadoValidaciones = validationResult(req);
 
+        if (resultadoValidaciones.isEmpty()){
+            let datos = req.body;
+            let cEncriptada = bcrypt.hashSync(datos.contrasena,10);
         db.usuario.create(
             {
                 nombre: datos.nombre,
@@ -43,10 +46,11 @@ const controller = {
                 monto_billetera: 0,
                 administrador: 0
             }
-            )
+            ), res.redirect('/login');
 
-		res.redirect('/login');
-    }, 
+        } else { 
+            res.render("registro");
+    }}, 
     index: (req, res) => {
         res.render("index");
     }, 

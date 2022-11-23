@@ -2,17 +2,10 @@ const express = require ("express");
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const { body } = require("express-validator");
 const controller = require("../controllers/mainControllers");
 const guestMiddleware = require ("../middlewares/guestMiddleware")
-const authMiddleware = require ("../middlewares/authMiddleware")
-
-/*const {body, check} = require("express-validator");*/
-
-/* const validaciones = [
-    body("correoElectronico").isEmail().withMessage("Completar al campo con un mail válido"),
-    body("contrasenia").notEmpty(),
-]; */ 
-// es un middle que se encarga de validar lo que se cargue en perfil.
+const authMiddleware = require ("../middlewares/authMiddleware");
 
 const multerDiskStorage = multer.diskStorage({
     destination: function(req, file, cb) {       // request, archivo y callback que almacena archivo en destino
@@ -26,6 +19,23 @@ const multerDiskStorage = multer.diskStorage({
 
 const uploadFile = multer({ storage: multerDiskStorage });
 
+
+const validaciones = [
+    body("nombre").notEmpty().withMessage("Por favor, debes ingresar un nombre"),
+    body("apellido").notEmpty().withMessage("Por favor, debes ingresar un apellido"),
+    body("email")
+        .notEmpty().withMessage("Por favor, ingresar un mail").bail()
+        .isEmail().withMessage("Por favor, debes ingresar un mail válido").bail(),
+    body("contrasena").notEmpty().withMessage("Por favor, ingresar contraseña"),
+    body("avatar").custom((value, { req }) => {
+        let file = req.file;
+        if (!file ){
+            throw new Error ("Por favor, subir una imagen");
+        }
+        return true;
+    })
+];
+
 router.get("/", controller.index)
 router.get("/login", guestMiddleware, controller.login)
 /* router.post("/login", [
@@ -33,7 +43,7 @@ router.get("/login", guestMiddleware, controller.login)
    check("password").isLength({min:8}).withMessage("La contraseña debe tener al menos 8 caracteres"),
 ], controller.processLogin) */
 router.get("/registro", guestMiddleware, controller.registro)
-router.post("/registro", uploadFile.single("avatar"), controller.registro2)
+router.post("/registro", uploadFile.single("avatar"), validaciones, controller.registro2)
 router.get("/perfil", authMiddleware, controller.perfil)
 router.post("/perfil", controller.loginProcess)
 router.get("/administrador", authMiddleware, controller.administrador)
