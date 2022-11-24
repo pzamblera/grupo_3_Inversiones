@@ -25,22 +25,24 @@
             <div class="card-body p-4 p-sm-5">
               <h5 class="card-title text-center mb-5 fw-light fs-5">Registro</h5>
               <form action="/registro" method="post" enctype="multipart/form-data">
-  
+
                 <div class="form-floating mb-3">
-                  <input type="text" name="nombre" class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>  " 
-                  id="floatingInputUsername" placeholder="Nombre" required autofocus
-                  value="<%= locals.oldData ? oldData.nombre : null %>">
-                  
+                  <input type="text" name="nombre" class="form-control 
+                    <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" 
+                    id="floatingInputUsername" placeholder="Nombre"
+                    value="<%= locals.oldData ? oldData.nombre : null %>">
                   <label for="floatingInputUsername">Nombre</label>
-                  <% if (locals.errors && errors.nombre) { %>
+                    <% if (locals.errors && errors.nombre) { %>
                   <div class="text-danger">
                     <%= errors.nombre.msg %>
                   </div>
-                  <% } %>
+                    <% } %>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="apellido" class="form-control" placeholder="Apellido" required autofocus>
+                  <input type="text" name="apellido" class="form-control 
+                    <%= locals.errors && errors.apellido ? 'is-invalid' : null %>" placeholder="Apellido"
+                    value="<%= locals.oldData ? oldData.apellido : null %>">
                   <label for="floatingInputUsername">Apellido</label>
                   <% if (locals.errors && errors.apellido) { %>
                     <div class="text-danger">
@@ -50,17 +52,19 @@
                 </div>
   
                 <div class="form-floating mb-3">
-                  <input type="email" name="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
-                  <label for="floatingInputEmail">Email</label>
+                  <input type="email" name="email" class="form-control 
+                    <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
+                    id="floatingInputEmail" placeholder="name@example.com"
+                    value="<%= locals.oldData ? oldData.email : null %>">
+                    <label for="floatingInputEmail">Email</label>
                   <% if (locals.errors && errors.email) { %>
                     <div class="text-danger">
                       <%= errors.email.msg %>
                     </div>
                     <% } %>
                 </div>
-          
                         <div class="form-floating mb-3">
-                          <input type="password" name="contrasena" class="form-control" id="floatingPassword" placeholder="Password">
+                          <input type="password" name="contrasena" class="form-control" id="floatingPassword" placeholder="Password" <%= locals.errors && errors.contrasena ? 'is-invalid' : null %>>
                           <label for="floatingPassword">Contraseña</label>
                           <% if (locals.errors && errors.contrasena) { %>
                             <div class="text-danger">
@@ -71,14 +75,18 @@
                         
                         <div>
                           <input type="file" name="avatar">
-
+                          <% if (locals.errors && errors.avatar) { %>
+                            <div class="text-danger">
+                              <%= errors.avatar.msg %>
+                            </div>
+                            <% } %>
                         </div>
           
                         <div class="d-grid mb-2">
                           <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Registrate</button>
                         </div>
           
-                        <a class="d-block text-center mt-2 small" href="#">Tenes cuenta? Ingresar</a>
+                        <a class="d-block text-center mt-2 small" href="login">Tenes cuenta? Ingresar</a>
 
           
                       </form>

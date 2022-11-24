@@ -32,6 +32,7 @@ const controller = {
     }, 
     registro2: (req, res) => {
         const resultadoValidaciones = validationResult(req);
+        console.log(resultadoValidaciones)
 
         if (resultadoValidaciones.isEmpty()){
             let datos = req.body;
@@ -46,10 +47,13 @@ const controller = {
                 monto_billetera: 0,
                 administrador: 0
             }
-            ), res.redirect('/login');
+            ), res.redirect('/perfil');
 
         } else { 
-            res.render("registro");
+            res.render("registro", {
+                errors: resultadoValidaciones.mapped(),
+                oldData: req.body
+        });
     }}, 
     index: (req, res) => {
         res.render("index");

@@ -1,0 +1,47 @@
+CREATE TABLE Usuario (
+id_usuario INT NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+apellido VARCHAR(80) NOT NULL,
+email VARCHAR(80) NOT NULL,
+clave VARCHAR(200) NOT NULL,
+avatar VARCHAR(80) NOT NULL,
+monto_billetera FLOAT (2),
+administrador BIT,
+PRIMARY KEY (id_usuario)
+);
+
+CREATE TABLE Historial_movimiento (
+id_historial INT NOT NULL AUTO_INCREMENT,
+id_usuario INT NOT NULL,
+id_movimiento INT NOT NULL,
+fecha DATETIME,
+monto_inicial FLOAT (2),
+rendimiento FLOAT (2),
+monto_final FLOAT (2),
+id_inversion INT,
+PRIMARY KEY (id_historial),
+FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+FOREIGN KEY (id_movimiento) REFERENCES Movimiento(id_movimiento),
+FOREIGN KEY (id_inversion) REFERENCES Inversion(id_inversion)
+);
+
+CREATE TABLE Movimiento (
+id_movimiento INT NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+PRIMARY KEY (id_movimiento)
+);
+
+CREATE TABLE Inversion (
+id_inversion INT NOT NULL AUTO_INCREMENT,
+nombre_inversion VARCHAR(50),
+descripcion TEXT,
+id_riesgo INT NOT NULL,
+PRIMARY KEY (id_inversion),
+FOREIGN KEY (id_riesgo) REFERENCES Riesgo(id_riesgo)
+);
+
+CREATE TABLE Riesgo (
+id_riesgo INT NOT NULL AUTO_INCREMENT,
+nombre_riesgo VARCHAR(50),
+PRIMARY KEY (id_riesgo)
+);

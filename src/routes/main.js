@@ -29,8 +29,15 @@ const validaciones = [
     body("contrasena").notEmpty().withMessage("Por favor, ingresar contraseña"),
     body("avatar").custom((value, { req }) => {
         let file = req.file;
+        let acceptedExtensions = [".png", ".jpg", ".gif", ".tiff"];
+        
         if (!file ){
-            throw new Error ("Por favor, subir una imagen");
+            throw new Error ("Por favor, subir una imagen en formato .PNG, .JPG, .GIF o .TIFF");
+        } else {
+            let fileExtensions = path.extname(file.originalname)
+            if (!acceptedExtensions.includes(fileExtensions)) {
+                throw new Error("Error: las extensiones permitidas son .PNG, .JPG, .GIF o .TIFF");
+        }
         }
         return true;
     })
