@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-/*const User = require('../../models/User');*/
+const { validationResult } = require ("express-validator")
+// const User = require('../../models/User');
 
 /*const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
 const usuariosFilePath = path.join(__dirname, '../dataBase/usuarios.json');
@@ -20,6 +21,7 @@ const controller = {
             if(isOkThePassword){
                 delete userToLogin.clavea;
                 req.session.userLogged = userToLogin;
+                console.log(req.session.userLogged)
                 return res.redirect("/perfil")
             }
         }console.log(userToLogin.clave)})
@@ -29,9 +31,12 @@ const controller = {
         res.render("registro");
     }, 
     registro2: (req, res) => {
-        let datos = req.body;
-        let cEncriptada = bcrypt.hashSync(datos.contrasena,10);
+        const resultadoValidaciones = validationResult(req);
+        console.log(resultadoValidaciones)
 
+        if (resultadoValidaciones.isEmpty()){
+            let datos = req.body;
+            let cEncriptada = bcrypt.hashSync(datos.contrasena,10);
         db.usuario.create(
             {
                 nombre: datos.nombre,
@@ -42,10 +47,14 @@ const controller = {
                 monto_billetera: 0,
                 administrador: 0
             }
-            )
+            ), res.redirect('/perfil');
 
-		res.redirect('/login');
-    }, 
+        } else { 
+            res.render("registro", {
+                errors: resultadoValidaciones.mapped(),
+                oldData: req.body
+        });
+    }}, 
     index: (req, res) => {
         res.render("index");
     }, 
@@ -60,6 +69,10 @@ const controller = {
         res.render("administrador",{inversion: inversion})}
         )
     },
+    logout: (req, res) => {
+        req.session.destroy();
+        return res.redirect("/")
+    }
 };
 
 module.exports = controller;

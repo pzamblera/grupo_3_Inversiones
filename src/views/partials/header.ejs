@@ -5,9 +5,6 @@
           <img src="/img/NOT_SO_PONZI-removebg-recortado.png" alt="" width="60" height="30" class="d-inline-block align-text-top navTextColor">
           NotSoPonzi
         </a>
-
-  
-        
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
             <button class="navbar-toggler navButtonColor" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,6 +12,7 @@
             </button>
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
               <ul class="navbar-nav navTextColor">
+                <% if(!locals.isLogged) { %>
                 <li class="nav-item">
                   <a class="nav-link navTextColor" href="/">Inicio</a> 
                 </li>
@@ -24,12 +22,38 @@
                 <li class="nav-item">
                   <a class="nav-link navTextColor" href="/login">Ingreso</a> 
                 </li>
+                <% } else { %>
+                  <li class="nav-item">
+                    <a class="nav-link navTextColor" href="/">Inicio</a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link navTextColor" href="/producto">Productos</a> 
+                  </li>
                 <li class="nav-item">
                   <a class="nav-link navTextColor" href="/perfil">Perfil</a> 
                 </li>
                 <li class="nav-item">
                   <a class="nav-link navTextColor" href="/administrador">Administrador</a> 
+                </li> 
+                
+          <!--      
+                  <li class="nav-item">
+                    <a class="nav-link navTextColor" href="/">Inicio</a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link navTextColor" href="/producto">Productos</a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link navTextColor" href="/login">Ingreso</a> 
+                  </li>
+               <li class="nav-item">
+                  <a class="nav-link navTextColor" href="/perfil">Perfil</a> 
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link navTextColor" href="/administrador">Administrador</a> 
+                </li>
+        -->        
+                <% } %>
               </ul>
             </div>
           </div>

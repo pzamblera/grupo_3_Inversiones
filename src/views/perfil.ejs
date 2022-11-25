@@ -15,13 +15,16 @@
   <%- include('partials/header') %>
 
       <section class="container">
+        
         <div class="row justify-content-around align-items-center">
             <p class="col-5 imgPerfil alignTextPerfil"><i class="fa-solid fa-id-badge"></i></p>
+            
             <div class="col-7 fontSize">
                 <p>Hola <%=user.nombre%></p>
                 <p>Disponible para invertir:</p>
                 <p>$<%=user.monto%></p>
             </div>
+            <a href="/logout"><button type="button" class="btn btn-success colorButton">Cerrar Sesion</button></a>
         </div>
       </section>
       <section class="">

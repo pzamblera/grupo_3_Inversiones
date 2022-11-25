@@ -2,14 +2,10 @@ const express = require ("express");
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const { body } = require("express-validator");
 const controller = require("../controllers/mainControllers");
-/*const {body, check} = require("express-validator");*/
-
-/* const validaciones = [
-    body("correoElectronico").isEmail().withMessage("Completar al campo con un mail válido"),
-    body("contrasenia").notEmpty(),
-]; */ 
-// es un middle que se encarga de validar lo que se cargue en perfil.
+const guestMiddleware = require ("../middlewares/guestMiddleware")
+const authMiddleware = require ("../middlewares/authMiddleware");
 
 const multerDiskStorage = multer.diskStorage({
     destination: function(req, file, cb) {       // request, archivo y callback que almacena archivo en destino
@@ -23,17 +19,42 @@ const multerDiskStorage = multer.diskStorage({
 
 const uploadFile = multer({ storage: multerDiskStorage });
 
+
+const validaciones = [
+    body("nombre").notEmpty().withMessage("Por favor, debes ingresar un nombre"),
+    body("apellido").notEmpty().withMessage("Por favor, debes ingresar un apellido"),
+    body("email")
+        .notEmpty().withMessage("Por favor, ingresar un mail").bail()
+        .isEmail().withMessage("Por favor, debes ingresar un mail válido").bail(),
+    body("contrasena").notEmpty().withMessage("Por favor, ingresar contraseña"),
+    body("avatar").custom((value, { req }) => {
+        let file = req.file;
+        let acceptedExtensions = [".png", ".jpg", ".gif", ".tiff"];
+        
+        if (!file ){
+            throw new Error ("Por favor, subir una imagen en formato .PNG, .JPG, .GIF o .TIFF");
+        } else {
+            let fileExtensions = path.extname(file.originalname)
+            if (!acceptedExtensions.includes(fileExtensions)) {
+                throw new Error("Error: las extensiones permitidas son .PNG, .JPG, .GIF o .TIFF");
+        }
+        }
+        return true;
+    })
+];
+
 router.get("/", controller.index)
-router.get("/login", controller.login)
+router.get("/login", guestMiddleware, controller.login)
 /* router.post("/login", [
    check("email").isEmail().withMessage("email invalido"),
    check("password").isLength({min:8}).withMessage("La contraseña debe tener al menos 8 caracteres"),
 ], controller.processLogin) */
-router.get("/registro", controller.registro)
-router.post("/registro", uploadFile.single("avatar"), controller.registro2)
-router.get("/perfil", controller.perfil)
+router.get("/registro", guestMiddleware, controller.registro)
+router.post("/registro", uploadFile.single("avatar"), validaciones, controller.registro2)
+router.get("/perfil", authMiddleware, controller.perfil)
 router.post("/perfil", controller.loginProcess)
-router.get("/administrador", controller.administrador)
+router.get("/administrador", authMiddleware, controller.administrador)
+router.get("/logout", controller.logout);
 
 
 module.exports = router;
