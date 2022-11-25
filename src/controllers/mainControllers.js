@@ -22,8 +22,8 @@ const controller = {
                 delete userToLogin.clavea;
                 req.session.userLogged = userToLogin;
                 console.log(req.session.userLogged)
-                return res.redirect("/perfil")
-            }
+                return res.redirect("/")
+            } 
         }console.log(userToLogin.clave)})
 
     },
