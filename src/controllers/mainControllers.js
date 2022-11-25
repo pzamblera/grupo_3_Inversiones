@@ -68,6 +68,7 @@ const controller = {
         .then(function(inversion){
         res.render("administrador",{inversion: inversion})}
         )
+        console.log(req.session.userLogged.email)
     },
     logout: (req, res) => {
         req.session.destroy();

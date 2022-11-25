@@ -22,7 +22,16 @@
                 <li class="nav-item">
                   <a class="nav-link navTextColor" href="/login">Ingreso</a> 
                 </li>
-                <% } else { %>
+                <% } else if(locals.userLogged.administrador == 1) { %>
+                  <li class="nav-item">
+                    <a class="nav-link navTextColor" href="/">Inicio</a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link navTextColor" href="/producto">Productos</a> 
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link navTextColor" href="/administrador">Administrador</a> 
+                </li>  <% } else { %>
                   <li class="nav-item">
                     <a class="nav-link navTextColor" href="/">Inicio</a> 
                   </li>
@@ -32,9 +41,6 @@
                 <li class="nav-item">
                   <a class="nav-link navTextColor" href="/perfil">Perfil</a> 
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link navTextColor" href="/administrador">Administrador</a> 
-                </li> 
                 
           <!--      
                   <li class="nav-item">
