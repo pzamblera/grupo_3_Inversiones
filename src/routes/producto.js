@@ -12,5 +12,9 @@ routerProducto.put("/editar/:id", controller2.actualizar)
 
 routerProducto.delete('/editar/:id', controller2.destroy)
 
+routerProducto.put("/perfil/ingresar", controller2.ingresarDinero)
+routerProducto.put("/perfil/retirar", controller2.retirarDinero)
+routerProducto.put("/perfil/invertir", controller2.invertirDinero)
+
 
 module.exports = routerProducto;

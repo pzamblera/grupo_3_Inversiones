@@ -55,6 +55,8 @@ router.get("/perfil", authMiddleware, controller.perfil)
 router.post("/perfil", controller.loginProcess)
 router.get("/administrador", authMiddleware, controller.administrador)
 router.get("/logout", controller.logout);
-
+router.get("/ingresar", controller.ingresar);
+router.get("/retirar", controller.retirar);
+router.get("/invertir", controller.vistaInversion)
 
 module.exports = router;

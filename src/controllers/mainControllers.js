@@ -19,12 +19,12 @@ const controller = {
         if(userToLogin) {
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.clave);
             if(isOkThePassword){
-                delete userToLogin.clavea;
+                delete userToLogin.clave;
                 req.session.userLogged = userToLogin;
-                console.log(req.session.userLogged)
+                //console.log(req.session.userLogged)
                 return res.redirect("/")
             } 
-        }console.log(userToLogin.clave)})
+        }/*console.log(userToLogin.clave)*/})
 
     },
     registro: (req, res) => {
@@ -58,22 +58,40 @@ const controller = {
     index: (req, res) => {
         res.render("index");
     }, 
-    perfil: (req, res) => {
-        return res.render("perfil", {
-            user: req.session.userLogged
-        });
+    perfil: (req, res) => { 
+        let usuario = db.usuario.findByPk(req.session.userLogged.id_usuario)
+        .then(function(usuario){
+        res.render("perfil",{usuario:usuario})
+    })
+        
+    //    return res.render("perfil", {
+    //        user: req.session.userLogged
+    //});
+        
     },
     administrador:(req, res) => {
         db.inversion.findAll()
         .then(function(inversion){
         res.render("administrador",{inversion: inversion})}
         )
-        console.log(req.session.userLogged.email)
+        //console.log(req.session.userLogged.email)
     },
     logout: (req, res) => {
         req.session.destroy();
         return res.redirect("/")
-    }
+    },
+    ingresar: (req, res) => {
+        res.render("ingresar");
+    },
+    retirar: (req, res) => {
+        res.render("retirar");
+    },
+    vistaInversion: function (req, res) {
+        db.inversion.findAll()
+        .then(function(inversion) {    
+            res.render('invertir', {inversion:inversion})
+            });
+	} 
 };
 
 module.exports = controller;

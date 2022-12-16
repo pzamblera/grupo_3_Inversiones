@@ -20,10 +20,19 @@
             <p class="col-5 imgPerfil alignTextPerfil"><i class="fa-solid fa-id-badge"></i></p>
             
             <div class="col-7 fontSize">
-                <p>Hola <%=user.nombre%></p>
+                <p>Hola <%=usuario.nombre%></p>
                 <p>Disponible para invertir:</p>
-                <p>$<%=user.monto%></p>
+                <p>$<%=usuario.monto_billetera%></p>
             </div> 
+            <a class="" href="/ingresar">Ingresar dinero</a> 
+            <a class="" href="/retirar">Retirar dinero</a> 
+            <a class="" href="/invertir">Invertir</a> 
+            <!--form class="" action="/producto/perfil?_method=PUT" method="POST">
+                <label class="monto" for="">Ingresar dinero</label>
+                <input type="text" name="monto" value="">
+                <button type="submit" class="btn btn-secondary">INGRESAR</button>
+            </form-->
+
         </div>
       </section>
       <section class="">
@@ -37,6 +46,7 @@
                     <p class="alignTextPerfil">Fondo Común de Inversión</p>
                     <p>Total invertido:</p>
                     <p>$000.000,00</p>
+
                     <div>
                         <button type="button" class="btn btn-success colorButton">Invertir</button>
                         <button type="button" class="btn btn-secondary">Retirar</button>
