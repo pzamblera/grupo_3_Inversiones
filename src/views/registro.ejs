@@ -13,44 +13,36 @@
   <body>
 
     <%- include('partials/header') %>
-
-    </section>
     <div class="container">
       <div class="row">
         <div class="col-lg-10 col-xl-6 mx-auto">
           <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-            <!--div class="card-img-left d-none d-md-flex">
-              <Background image for card set in CSS! >
-            </div-->
             <div class="card-body p-4 p-sm-5">
               <h5 class="card-title text-center mb-5 fw-light fs-5">Registro</h5>
-              <form action="/registro" method="post" enctype="multipart/form-data">
-
-                <div class="form-floating mb-3">
-                  <input type="text" name="nombre" class="form-control 
-                    <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" 
-                    id="floatingInputUsername" placeholder="Nombre"
-                    value="<%= locals.oldData ? oldData.nombre : null %>">
-                  <label for="floatingInputUsername">Nombre</label>
-                    <% if (locals.errors && errors.nombre) { %>
-                  <div class="text-danger">
-                    <%= errors.nombre.msg %>
+                <form action="/registro" method="post" enctype="multipart/form-data" class="especialRegistro">
+                  <div class="form-floating mb-3">
+                    <input type="text" name="nombre" class="form-control 
+                      <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" 
+                      id="floatingInputUsername" placeholder="Nombre"
+                      value="<%= locals.oldData ? oldData.nombre : null %>">
+                      <label for="floatingInputUsername">Nombre</label>
+                        <% if (locals.errors && errors.nombre) { %>
+                      <div class="text-danger">
+                        <%= errors.nombre.msg %>
+                      </div>
+                        <% } %>
                   </div>
-                    <% } %>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input type="text" name="apellido" class="form-control 
-                    <%= locals.errors && errors.apellido ? 'is-invalid' : null %>" placeholder="Apellido"
-                    value="<%= locals.oldData ? oldData.apellido : null %>">
-                  <label for="floatingInputUsername">Apellido</label>
-                  <% if (locals.errors && errors.apellido) { %>
+                  <div class="form-floating mb-3">
+                    <input type="text" name="apellido" class="form-control 
+                      <%= locals.errors && errors.apellido ? 'is-invalid' : null %>" placeholder="Apellido"
+                      value="<%= locals.oldData ? oldData.apellido : null %>">
+                    <label for="floatingInputUsername">Apellido</label>
+                      <% if (locals.errors && errors.apellido) { %>
                     <div class="text-danger">
                       <%= errors.apellido.msg %>
                     </div>
-                    <% } %>
-                </div>
-  
+                      <% } %>
+                  </div>
                 <div class="form-floating mb-3">
                   <input type="email" name="email" class="form-control 
                     <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
@@ -107,8 +99,8 @@
               </div>
             </div>
           </body>
-    </section>
-
+    <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>      
+    <script src="/js/js-frontRegistro.js"></script>
     <%- include('partials/footer') %>
 
 </body>

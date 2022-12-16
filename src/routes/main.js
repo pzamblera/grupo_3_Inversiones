@@ -26,7 +26,7 @@ const validaciones = [
     body("email")
         .notEmpty().withMessage("Por favor, ingresar un mail").bail()
         .isEmail().withMessage("Por favor, debes ingresar un mail válido").bail(),
-    body("contrasena").notEmpty().withMessage("Por favor, ingresar contraseña"),
+    body("contrasena").isLength({min:4}).withMessage("Por favor, ingresar contraseña con 4 o mas carateres"),
     body("avatar").custom((value, { req }) => {
         let file = req.file;
         let acceptedExtensions = [".png", ".jpg", ".gif", ".tiff"];
