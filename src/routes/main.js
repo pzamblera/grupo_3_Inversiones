@@ -58,5 +58,7 @@ router.get("/logout", controller.logout);
 router.get("/ingresar", controller.ingresar);
 router.get("/retirar", controller.retirar);
 router.get("/invertir", controller.vistaInversion)
+router.get("/carrito", controller.carrito)
+router.get("/verCarrito", controller.verCarrito)
 
 module.exports = router;

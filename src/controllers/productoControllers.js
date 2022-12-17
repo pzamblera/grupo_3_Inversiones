@@ -219,6 +219,27 @@ const controller2 = {
         .then(function(){
             res.redirect('/perfil');
             })
+    },
+
+    anadirCarrito: async function (req, res) {
+        let datos = req.body;
+        let inversionesDatos = await db.inversion.findByPk(datos.id_inversion);
+        let hoy = new Date();
+
+        let historialCUpdate = db.historial_movimiento.create(
+            {
+                id_usuario: req.session.userLogged.id_usuario,
+                id_movimiento: 1,
+                fecha: hoy,
+                monto_inicial: parseInt(datos.monto),
+                monto_final: parseInt(datos.monto),
+                id_inversion: inversionesDatos.id_inversion,
+                Carrito: 1,
+
+            })
+        .then(function(){
+            res.redirect('/perfil');
+            })
     }
 
 

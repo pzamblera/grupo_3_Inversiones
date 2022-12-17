@@ -91,7 +91,28 @@ const controller = {
         .then(function(inversion) {    
             res.render('invertir', {inversion:inversion})
             });
-	} 
+	},
+    carrito: function (req, res) {
+        db.inversion.findAll()
+        .then(function(inversion) {    
+            res.render('carrito', {inversion:inversion})
+            });
+	},  
+    verCarrito: async function (req, res) {
+        let historial = await db.historial_movimiento.findAll({
+            where:{
+                id_usuario: req.session.userLogged.id_usuario,
+                Carrito: 1,
+            }
+        },{include: [{association:"inversiones"}]});
+        let inversion = await db.inversion.findAll();
+        Promise.all([historial, inversion])
+        .then(function([historial_movimiento,inversion]) {    
+            res.render('verCarrito', {historial_movimiento:historial_movimiento, inversion:inversion})
+            });
+            console.log(historial)
+            console.log(inversion)
+	}  
 };
 
 module.exports = controller;

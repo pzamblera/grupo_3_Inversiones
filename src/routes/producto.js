@@ -14,7 +14,8 @@ routerProducto.delete('/editar/:id', controller2.destroy)
 
 routerProducto.put("/perfil/ingresar", controller2.ingresarDinero)
 routerProducto.put("/perfil/retirar", controller2.retirarDinero)
-routerProducto.put("/perfil/invertir", controller2.invertirDinero)
+routerProducto.put("/perfil/invertir", controller2.invertirDinero) 
 
+routerProducto.post("/perfil/carrito", controller2.anadirCarrito)
 
 module.exports = routerProducto;
