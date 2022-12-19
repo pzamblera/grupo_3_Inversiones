@@ -16,7 +16,7 @@
 <section class="bodyCrud">
     <form class="" action="/producto/perfil/invertir?_method=PUT" method="POST">
         <label class="monto" for="">¿Cuánto dinero quieres invertir?</label>
-        <input type="number" name="monto" value="">
+        <input type="number" name="monto" value="" class="carritoDeCompra">
         <label class="campo" for="">Tipo</label>
         <select name="id_inversion" id="">
             <%for(let i=0; i<inversion.length; i++ ){%>
@@ -24,9 +24,11 @@
             <%}%>  
             </select>
         <button type="submit" class="btn btn-secondary">INGRESAR</button>
+        <button type="submit" class="btn btn-secondary" id="carrito">Agregar al carrito</button>
+    
     </form>
 </section>
-
+<script src="/js/carrito.js"></script>
     <%- include('partials/footer') %>
 
 </body>
