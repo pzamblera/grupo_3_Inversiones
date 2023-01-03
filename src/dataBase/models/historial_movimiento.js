@@ -10,7 +10,8 @@ function historialMov(sequelize, Datatypes){
       monto_inicial: {type: Datatypes.FLOAT},
       rendimiento: { type: Datatypes.FLOAT},
       monto_final: {type: Datatypes.FLOAT},
-      id_inversion: {type: Datatypes.INTEGER}
+      id_inversion: {type: Datatypes.INTEGER},
+      Carrito: {type: Datatypes.BOOLEAN}
     }
   
     let c = {camelCase: false, timestamps: false, tableName: "Historial_movimiento"}; //hay que ver si va false en timestamps, porque aca tenemos atributos que son fecha!

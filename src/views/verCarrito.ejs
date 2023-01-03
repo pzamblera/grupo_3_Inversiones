@@ -13,23 +13,25 @@
 <body class="mainStyle">
 
     <%- include('partials/header') %>
-<section class="bodyCrud">
-    <form class="" action="/producto/perfil/invertir?_method=PUT" id="formulario" method="POST">
-        <label class="monto" for="">¿Cuánto dinero quieres invertir?</label>
-        <input type="number" name="monto" value="" id="montFormulario">
-        <label class="campo" for="">Tipo</label>
-        <select name="id_inversion" id="">
-            <%for(let i=0; i<inversion.length; i++ ){%>
-                <option value="<%=inversion[i].id_inversion%>"><%=inversion[i].nombre_inversion%></option>
-            <%}%>  
-            </select>
-        <button type="submit" class="btn btn-secondary">INGRESAR</button>
-        
-    </form>
-    
-</section>
-<script src="/js/carrito.js"></script>
+
+    <div class="container administrador">
+        <div class="row justify-content-around">
+            <% for(let i=0; i<historial_movimiento.length; i++) { %>
+            <div class="col-8 col-sm-5 col-lg-3 card">
+                    <div class="activoCard ">     
+                        <br>
+                        <p class="alignTextPerfil">Monto: <%=historial_movimiento[i].monto_inicial%> </p>
+                        <p class="alignTextPerfil">ID inversion: <%=historial_movimiento[i].id_inversion%> </p>
+                    </div>
+                
+            </div>   
+            <% } %>     
+                   
+        </div>
+    </div>
+
+
     <%- include('partials/footer') %>
-<script src="../../public/js/carrito.js"></script>
+
 </body>
 </html>

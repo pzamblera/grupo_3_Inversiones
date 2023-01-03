@@ -16,24 +16,32 @@
 
       <section class="container">
         
-        <div class="row justify-content-around align-items-center">
+        <div class="row justify-content-around align-items-center ">
+            <div class="container">
+            <div class="row align-items-center">    
             <p class="col-5 imgPerfil alignTextPerfil"><i class="fa-solid fa-id-badge"></i></p>
             
             <div class="col-7 fontSize">
                 <p>Hola <%=usuario.nombre%></p>
                 <p>Disponible para invertir:</p>
                 <p>$<%=usuario.monto_billetera%></p>
-            </div> 
-            <a class="" href="/ingresar">Ingresar dinero</a> 
-            <a class="" href="/retirar">Retirar dinero</a> 
-            <a class="" href="/invertir">Invertir</a> 
+            </div>
+            </div>
+            <div class="row justify-content-start"> 
+            <a class="col" href="/ingresar"><button type="button" class="btn btn-success colorButton">Ingresar dinero</button></a> 
+            <a class="col" href="/retirar"><button type="button" class="btn btn-success colorButton">Retirar dinero</button></a> 
+            <a class="col" href="/invertir"><button type="button" class="btn btn-success colorButton">Invertir</button></a> 
+            <a class="col" href="/carrito"><button type="button" class="btn btn-success colorButton">Carrito</button></a> 
+            <a class="col" href="/vercarrito"><button type="button" class="btn btn-success colorButton">Ver carrito</button></a> 
             <!--form class="" action="/producto/perfil?_method=PUT" method="POST">
                 <label class="monto" for="">Ingresar dinero</label>
                 <input type="text" name="monto" value="">
                 <button type="submit" class="btn btn-secondary">INGRESAR</button>
             </form-->
-
-        </div>
+            </div>
+            
+            </div> 
+        </div><br>       
       </section>
       <section class="">
         <div>
