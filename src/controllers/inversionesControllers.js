@@ -28,6 +28,27 @@ const controller3 = {
                 status: 200
             })
             })
+    },
+    listadoUsuarios: (req, res) => {
+        DB.usuario
+            .findAll()
+            .then(usuarios => {
+                return res.status(200).json({
+                    total: usuarios.length,
+                    data: usuarios,
+                    status: 200
+                })
+            })
+    },
+    idUsuarios: (req, res) => {
+        DB.usuario
+            .findByPk(req.params.id)
+                .then(usuarios => {
+                    return res.status(200).json({
+                        data: usuarios,
+                        status: 200
+                })
+            })
     }
 }
 

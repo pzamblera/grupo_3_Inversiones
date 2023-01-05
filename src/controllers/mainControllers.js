@@ -101,41 +101,20 @@ const controller = {
             });
 	},  
     verCarrito: async function (req, res) {
-        let historial = await db.historial_movimiento.findAll({
+        let historial = await db.historial_movimiento.findAll({include: [{association:"inversiones"}],
+        
             where:{
                 id_usuario: req.session.userLogged.id_usuario,
                 Carrito: 1,
             }
-        },{include: [{association:"inversiones"}]});
+        });
         let inversion = await db.inversion.findAll();
-        Promise.all([historial, inversion])
-        .then(function([historial_movimiento,inversion]) {    
-            res.render('verCarrito', {historial_movimiento:historial_movimiento, inversion:inversion})
-            });
             console.log(historial)
-            console.log(inversion)
-	},
-    listadoUsuarios: (req, res) => {
-        db.usuario
-            .findAll()
-            .then( usuarios => {
-                return res.status(200).json({
-                    total: usuarios.length,
-                    data: usuarios,
-                    status: 200
-                })
-            })
-    },
-    idUsuarios: (req, res) => {
-        db.usuario
-            .findByPk(req.params.id)
-                .then( usuarios => {
-                    return res.status(200).json({
-                        data: usuarios,
-                        status: 200
-                })
-            })
-    }
+            res.render('verCarrito', {historial_movimiento:historial, inversion:inversion})
+            
+            //console.log(inversion)
+	}
+    
 };
 
 module.exports = controller;

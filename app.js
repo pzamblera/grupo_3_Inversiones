@@ -5,11 +5,12 @@ const router = require('./src/routes/main');
 const routerProducto = require("./src/routes/producto");
 const routerInv = require("./src/routes/inversiones");
 const methodOverride =  require('method-override');
-
+const cors= require("cors");
 const app = express();
 
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 
+app.use(cors())
 app.use(session({
     secret: "Secreto",
     resave: false,
