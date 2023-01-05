@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require ("express-validator")
+const axios = require("axios");
+const ObtenerPelicula = require("../service/productosService")
 // const User = require('../../models/User');
 
 /*const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
@@ -112,7 +114,28 @@ const controller = {
             });
             console.log(historial)
             console.log(inversion)
-	}  
+	},
+    listadoUsuarios: (req, res) => {
+        db.usuario
+            .findAll()
+            .then( usuarios => {
+                return res.status(200).json({
+                    total: usuarios.length,
+                    data: usuarios,
+                    status: 200
+                })
+            })
+    },
+    idUsuarios: (req, res) => {
+        db.usuario
+            .findByPk(req.params.id)
+                .then( usuarios => {
+                    return res.status(200).json({
+                        data: usuarios,
+                        status: 200
+                })
+            })
+    }
 };
 
 module.exports = controller;
