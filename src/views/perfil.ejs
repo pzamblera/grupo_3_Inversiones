@@ -14,12 +14,12 @@
 
   <%- include('partials/header') %>
 
-      <section class="container">
+      <section class="container administrador">
         
         <div class="row justify-content-around align-items-center ">
             <div class="container">
             <div class="row align-items-center">    
-            <p class="col-5 imgPerfil alignTextPerfil"><i class="fa-solid fa-id-badge"></i></p>
+            <img src="/img/<%=usuario.avatar%>" alt="" class="avatar">
             
             <div class="col-7 fontSize">
                 <p>Hola <%=usuario.nombre%></p>
@@ -39,49 +39,17 @@
                 <button type="submit" class="btn btn-secondary">INGRESAR</button>
             </form-->
             </div>
-            
-            </div> 
+            <div> 
+            <% for(let i=0; i<historial_movimiento.length; i++) { %>
+                <h4>Tu inversión en  se $<%=historial_movimiento[i].monto_inicial%> tuvo un rendimiento de <%=historial_movimiento[i].rendimiento%></h4>                  
+                <% } %>   
+            <h4></h4>
+            </div>
+            </div>
         </div><br>       
       </section>
       <section class="">
-        <div>
-            <h2 class="carteraCentrado">Cartera de inversiones</h2>
-        </div>
-        <div class="container">
-            <div class="row justify-content-around">
-                <div class="col-10 col-md-6 col-lg-3 card">
-                    <p class="alignTextPerfil"><i class="fa-solid fa-group-arrows-rotate cardIcon"> </i></p>
-                    <p class="alignTextPerfil">Fondo Común de Inversión</p>
-                    <p>Total invertido:</p>
-                    <p>$000.000,00</p>
-
-                    <div>
-                        <button type="button" class="btn btn-success colorButton">Invertir</button>
-                        <button type="button" class="btn btn-secondary">Retirar</button>
-                    </div>
-                </div>
-                <div class="col-10 col-md-6 col-lg-3 card">
-                    <p class="alignTextPerfil"><i class="fa-solid fa-seedling cardIcon"></i></p>
-                    <p class="alignTextPerfil">Inversión Campo</p>
-                    <p>Total invertido:</p>
-                    <p>$000.000,00</p>
-                    <div>
-                        <button type="button" class="btn btn-success colorButton">Invertir</button>
-                        <button type="button" class="btn btn-secondary">Retirar</button>
-                    </div>
-                </div>
-                <div class="col-10 col-md-6 col-lg-3 card">
-                    <p class="alignTextPerfil"><i class="fa-solid fa-coins cardIcon"></i></p>
-                    <p class="alignTextPerfil">NSPCoin</p>
-                    <p>Total invertido:</p>
-                    <p>$000.000,00</p>
-                    <div>
-                        <button type="button" class="btn btn-success colorButton">Invertir</button>
-                        <button type="button" class="btn btn-secondary">Retirar</button>
-                    </div>
-                </div>                        
-            </div>
-        </div>
+        
       </section>
 
       <%- include('partials/footer') %>

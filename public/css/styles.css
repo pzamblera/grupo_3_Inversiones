@@ -209,3 +209,8 @@ color: #f8f4f4;
 .administrador{
     min-height: 80vh;
 }
+
+.avatar{
+    width: 200px;
+    border-radius: 50%;
+}
