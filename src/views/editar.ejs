@@ -11,19 +11,17 @@
     <link rel="stylesheet" href="/css/estiloEditar.css">
     <title>NotSoPonzi</title>
 </head>
-<body>
+<body class="mainStyle">
 
 <%- include('partials/header') %>
 
-<section class="bodyCrud">
-    <form class="form-edit" action="/producto/editar/<%=inversion.id_inversion%>?_method=PUT" method="POST">
-        <label class="campo" for="">Nombre</label>
-        <input type="text" name="nombre" value="<%=inversion.nombre_inversion%>">
-        <br>
-        <label for="">Tipo Actual: <%=inversion.riesgos.nombre_riesgo%></label>
-        <br>
-        <label class="campo" for="">Nuevo Tipo: </label>
-        <select name="tipo" id="">
+<section class="bodyCrud container text-center">
+    <form class="form-edit row justify-content-center" action="/producto/editar/<%=inversion.id_inversion%>?_method=PUT" method="POST">
+        <label class="campo col-7 marginInversiones" for="">Nombre</label>
+        <input class="col-7 marginInversiones" type="text" name="nombre" value="<%=inversion.nombre_inversion%>">
+        <label class="col-7 marginInversiones" for="">Tipo Actual: <%=inversion.riesgos.nombre_riesgo%></label>
+        <label class="campo col-7 marginInversiones" for="">Nuevo Tipo: </label>
+        <select class="col-7 marginInversiones" name="tipo" id="">
             <%for(let i=0; i<riesgo.length; i++ ){%>
                 <% if(riesgo[i].id_riesgo == inversion.id_riesgo) { %>
                     <option value="<%=riesgo[i].id_riesgo%>" selected><%=riesgo[i].nombre_riesgo%></option>
@@ -32,16 +30,14 @@
                 <% } %>        
             <% } %>
         </select>    
-        <br>
-    <label class="campo" for="">Descripción</label>
-    <input type="text" name="descripcion" value="<%=inversion.descripcion%>">
-    <br>
-    <div class="botones">
-    <button type="submit" class="btn btn-secondary">EDITAR</button>
-    <a href="/administrador"><button type="button" class="btn btn-secondary">VOLVER</button></a>
+        <label class="campo col-7 marginInversiones" for="">Descripción</label>
+        <input class="col-7 marginInversiones" type="text" name="descripcion" value="<%=inversion.descripcion%>">
+        <div class="botones">
+        <button type="submit" class="btn btn-success col-7 marginInversiones">EDITAR</button>
+        <a href="/administrador"><button type="button" class="btn btn-secondary col-7 marginInversiones">VOLVER</button></a>
     </form>
-    <form action="/producto/editar/<%=inversion.id_inversion%>?_method=DELETE" method="POST">
-        <button type="submit" class="btn btn-secondary">ELIMINAR</button>
+    <form class="row justify-content-center" action="/producto/editar/<%=inversion.id_inversion%>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-secondary col-7 marginInversiones">ELIMINAR</button>
     </form>
     </div>
 </section>

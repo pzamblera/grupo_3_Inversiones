@@ -237,3 +237,26 @@ color: #f8f4f4;
 .marginInversiones{
     margin-bottom: 30px;
 }
+
+.imgProductos{
+    background-image: url(../img/imgFCI.png);
+    background-size: cover;
+    height: 40vh;
+    margin-bottom: 10px;
+}
+.imgProductos1{
+    background-image: url(../img/campo.png);
+    background-size: cover;
+    height: 40vh;
+    margin-bottom: 10px;
+}
+.imgProductos2{
+    background-image: url(../img/moneda.png);
+    background-size: cover;
+    height: 40vh;
+    margin-bottom: 10px;
+}
+.altoProductos{
+    height: 40vh;
+    padding: 50px;
+}
