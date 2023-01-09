@@ -4,7 +4,7 @@ const Op = DB.Sequelize.Op;
 const controller3 = {
     list: (req, res) => {
         DB.inversion
-            .findAll()
+            .findAll({include: [{association:"riesgos"}]})
             .then(inv =>{
                 return res.status(200).json({
                 count: inv.length,
@@ -47,6 +47,27 @@ const controller3 = {
                     return res.status(200).json({
                         data: usuarios,
                         status: 200
+                })
+            })
+    },
+    ultimoUsuario: (req, res) => {
+        DB.usuario
+            .findAll()
+            .then(usuarios => {
+                return res.status(200).json({
+                    ultimo: usuarios[usuarios.length -1]
+                })
+            })
+    },
+    ultimaInversion: (req, res) => {
+        DB.historial_movimiento
+            .findAll({include: [{association:"usuarios"},{association:"inversiones"}],
+           where:{
+                id_movimiento: 3,
+            }})
+            .then(movimientos=> {
+                return res.status(200).json({
+                    ultimo: movimientos[movimientos.length -1]
                 })
             })
     }
