@@ -13,18 +13,18 @@
 <body class="mainStyle">
 
     <%- include('partials/header') %>
-<section class="bodyCrud">
-    <form class="" action="/producto/perfil/carrito" id="formulario" method="POST">
-        <label class="monto" for="">¿Qué deseas ingresar al carrito?</label>
-        <input type="number" name="monto" value="" id="montFormulario">
-        <label class="campo" for="">Tipo</label>
-        <select name="id_inversion" id="">
+<section class="bodyCrud container text-center">
+    <form class="row justify-content-center paddingInversiones" action="/producto/perfil/carrito" id="formulario" method="POST">
+        <label class="monto col-7 marginInversiones" for="">¿Qué deseas ingresar al carrito?</label>
+        <input class="col-7 marginInversiones" type="number" name="monto" value="" id="montFormulario">
+        <label class="campo col-7 marginInversiones" for="">Tipo de inversión</label>
+        <select class="col-7 marginInversiones" name="id_inversion" id="">
             <%for(let i=0; i<inversion.length; i++ ){%>
                 <option value="<%=inversion[i].id_inversion%>"><%=inversion[i].nombre_inversion%></option>
             <%}%>  
             </select>
-        <button type="submit" class="btn btn-secondary">INGRESAR</button>
-        <a href="/perfil"><button type="button" class="btn btn-secondary">VOLVER</button></a>
+        <button type="submit" class="btn  btn-success col-7 marginInversiones">INGRESAR</button>
+        <a href="/perfil"><button type="button" class="btn btn-secondary col-7 marginInversiones">VOLVER</button></a>
         
     </form>
     
