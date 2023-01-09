@@ -62,17 +62,17 @@ const controller = {
     }, 
     perfil: async function (req, res) { 
         let usuario = await db.usuario.findByPk(req.session.userLogged.id_usuario);
-        let historialUsuario = await db.historial_movimiento.findAll({
+        let historial_movimiento = await db.historial_movimiento.findAll({
             include: [{association:"usuarios"},{association:"inversiones"}],
             where:{id_usuario:req.session.userLogged.id_usuario},
             order: [["fecha", "DESC"]],
             limit:5
         });
-        //Promise.all([usuario])
-        //.then(function(usuario){
-            res.render('perfil',{usuario:usuario, historial_movimiento:historialUsuario});
-            //})
-        console.log(usuario, historialUsuario)
+        Promise.all([usuario, historial_movimiento])
+        .then(function(){
+            res.render('perfil',{usuario:usuario, historial_movimiento:historial_movimiento});
+            })
+        console.log(usuario, historial_movimiento)
         //.then(function(usuario){
         //res.render("perfil",{usuario:usuario})
     

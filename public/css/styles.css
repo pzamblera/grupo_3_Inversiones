@@ -213,4 +213,27 @@ color: #f8f4f4;
 .avatar{
     width: 200px;
     border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.nombreUsuario{
+    padding-top: 30px;
+}
+
+.botonPerfil{
+    margin: 10px;
+}
+
+.historial{
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.paddingInversiones{
+    padding-top: 50px;
+}
+
+.marginInversiones{
+    margin-bottom: 30px;
 }

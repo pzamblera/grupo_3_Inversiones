@@ -13,11 +13,11 @@
 <body class="mainStyle">
 
     <%- include('partials/header') %>
-<section class="bodyCrud">
-    <form class="" action="/producto/perfil/ingresar?_method=PUT" method="POST">
-        <label class="monto" for="">¿Cuánto dinero quieres ingrasar?</label>
-        <input type="number" name="monto" value="">
-        <button type="submit" class="btn btn-secondary">INGRESAR</button>
+<section class="bodyCrud container text-center">
+    <form class="row justify-content-center paddingInversiones" action="/producto/perfil/ingresar?_method=PUT" method="POST">
+        <label class="monto col-7 marginInversiones" for="">¿Cuánto dinero quieres ingrasar?</label>
+        <input class="col-7 marginInversiones"type="number" name="monto" value="">
+        <button type="submit" class="btn btn-secondary col-7 marginInversiones">INGRESAR</button>
     </form>
 </section>
 
