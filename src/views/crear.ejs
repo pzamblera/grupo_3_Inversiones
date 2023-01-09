@@ -15,30 +15,30 @@
 <body class="mainStyle">
     <%- include('partials/header') %>
 
-<section class="bodyCrud">
+<section class="bodyCrud container text-center">
     <form class="form-edit" action="/producto/crear" method="post">
-        <div>
-            <label class="campo"  for="">Nombre</label>
-            <input type="text" name="nombre_inversion">
+        <div class="row justify-content-center ">
+            <label class="campo col-7 marginInversiones"  for="">Nombre</label>
+            <input class="col-7 marginInversiones" type="text" name="nombre_inversion">
             <br>
         </div>
-        <div>
-            <label class="campo" for="">Tipo</label>
-            <select name="id_riesgo" id="">
+        <div class="row justify-content-center ">
+            <label class="campo col-7 marginInversiones" for="">Tipo</label>
+            <select class="col-7 marginInversiones" name="id_riesgo" id="">
                 <%for(let i=0; i<riesgo.length; i++ ){%>
                     <option value="<%=riesgo[i].id_riesgo%>"><%=riesgo[i].nombre_riesgo%></option>
                 <%}%>  
                 </select>
             <br>
         </div>
-        <div>
+        <div class="row justify-content-center ">
+            <label class="campo col-7 marginInversiones" for="">Descripción</label>
+            <input class="col-7 marginInversiones" type="text" name="descripcion">
         </div>    
-        <label class="campo" for="">Descripción</label>
-        <input type="text" name="descripcion">
-        <br>
-        <div class="botones">
-        <button type="submit" class="btn btn-secondary">CREAR</button>
-        <a href="/administrador"><button type="button" class="btn btn-secondary">VOLVER</button></a>
+        
+        <div class="row justify-content-center ">
+        <button type="submit" class="btn btn-success col-7 marginInversiones">CREAR</button>
+        <a href="/administrador"><button type="button" class="btn btn-secondary col-7 marginInversiones">VOLVER</button></a>
         </div>
     </form>
 </section>
