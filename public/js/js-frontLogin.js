@@ -4,7 +4,7 @@ window.addEventListener("load", function(){
     formulario.addEventListener("submit", function(e){
         e.preventDefault();
 
-        let eMail = document.querySelector("#floatingInput");
+        let eMail = document.getElementById("floatingInputEmail");
         if (eMail.value ==""){
             Swal.fire({
                 icon: 'error',
@@ -14,7 +14,7 @@ window.addEventListener("load", function(){
             return   
         };
 
-        let contrasenia = document.querySelector("#floatingPassword");
+        let contrasenia = document.getElementById("floatingPassword");
         if (contrasenia.value.length < 4 ){
             Swal.fire({
                 icon: 'error',

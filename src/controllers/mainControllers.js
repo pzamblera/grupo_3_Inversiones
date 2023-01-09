@@ -10,24 +10,33 @@ const ObtenerPelicula = require("../service/productosService")
 const usuariosFilePath = path.join(__dirname, '../dataBase/usuarios.json');
 const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath, 'utf-8'));*/
 
-const db=require("../dataBase/models")
+const db=require("../dataBase/models");
+const e = require('express');
 
 const controller = {
     login: (req, res) => {
         res.render("login");
     },    
     loginProcess: (req, res) => {
-        db.usuario.findOne({where: {email:req.body.email}}).then(function(userToLogin){
-        if(userToLogin) {
-            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.clave);
-            if(isOkThePassword){
-                delete userToLogin.clave;
-                req.session.userLogged = userToLogin;
-                //console.log(req.session.userLogged)
-                return res.redirect("/")
+            db.usuario.findOne({where: {email:req.body.email}}).then(function(userToLogin){
+            if(userToLogin) {
+                let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.clave);
+                if(isOkThePassword){
+                    delete userToLogin.clave;
+                    req.session.userLogged = userToLogin;
+                    //console.log(req.session.userLogged)
+                    return res.redirect("/")
+                } /*else {
+                    res.redirect("/")
+                } */
+            } else {
+                return res.redirect("/") 
             } 
-        }/*console.log(userToLogin.clave)*/})
-
+         
+        }) 
+    
+        
+    
     },
     registro: (req, res) => {
         res.render("registro");

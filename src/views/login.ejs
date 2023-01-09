@@ -27,19 +27,22 @@
                   <h3 class="login-heading mb-4 color">Bienvenido!</h3>
                     <form action="/perfil" method="post" class="especialLogin">
                       <div class="form-floating mb-3 mial">
-                        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" name="email" class="form-control 
+                    <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
+                    id="floatingInputEmail" placeholder="name@example.com"
+                    value="<%= locals.oldData ? oldData.email : null %>">
                           <label for="floatingInput">Email</label>
                       </div>
                       <div class="form-floating mb-3">
                         <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                           <label for="floatingPassword">Contraseña</label>
                       </div>
-                      <div class="form-check mb-3">
+                   <!--   <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                           <label class="form-check-label" for="rememberPasswordCheck">
                                 Recordar Contraseña
                           </label>
-                      </div>
+                      </div> -->
                       <div class="d-grid">
                         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Ingresar</button>
                           <div class="text-center">

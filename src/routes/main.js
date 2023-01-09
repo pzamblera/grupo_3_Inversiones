@@ -43,8 +43,16 @@ const validaciones = [
     })
 ];
 
+const validaciones2 = [
+    body("email")
+        .notEmpty().withMessage("Por favor, ingresar un mail").bail()
+        .isEmail().withMessage("Por favor, debes ingresar un mail válido").bail(),
+    body("contrasena").isLength({min:4}).withMessage("Por favor, ingresar contraseña con 4 o mas carateres")
+];
+
 router.get("/", controller.index)
 router.get("/login", guestMiddleware, controller.login)
+router.post("/login", validaciones2, controller.loginProcess)
 /* router.post("/login", [
    check("email").isEmail().withMessage("email invalido"),
    check("password").isLength({min:8}).withMessage("La contraseña debe tener al menos 8 caracteres"),

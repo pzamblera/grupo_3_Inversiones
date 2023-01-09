@@ -16,8 +16,9 @@
 <section class="bodyCrud">
     <form class="" action="/producto/perfil/retirar?_method=PUT" method="POST">
         <label class="monto" for="">¿Cuánto dinero quieres retirar?</label>
-        <input type="number" name="monto" value="">
+        <input type="number" min="0" pattern="^[0-9]+" name="monto" value="">
         <button type="submit" class="btn btn-secondary">Retirar</button>
+        <a href="/perfil"><button type="button" class="btn btn-secondary">VOLVER</button></a>
     </form>
 </section>
 
