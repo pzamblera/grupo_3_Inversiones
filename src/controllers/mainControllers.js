@@ -3,7 +3,6 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require ("express-validator")
 const axios = require("axios");
-const ObtenerPelicula = require("../service/productosService")
 // const User = require('../../models/User');
 
 /*const productsFilePath = path.join(__dirname, '../dataBase/activos.json');
